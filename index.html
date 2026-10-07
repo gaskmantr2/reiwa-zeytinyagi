@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reiwa Zeytinyağı | 0.4 Özel Dizem Premium Sızma Zeytinyağı</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Reiwa Zeytinyağı, 0.4 özel dizem düşük asit oranıyla sofralarınıza sağlık ve benzersiz bir lezzet katıyor. Yüzde yüz doğal, erken hasat ve soğuk sıkım sızma zeytinyağımızı hemen keşfedin.">
+    <meta name="keywords" content="Reiwa zeytinyağı, 0.4 dizem zeytinyağı, düşük asitli zeytinyağı, soğuk sıkım, erken hasat, doğal sızma zeytinyağı, premium zeytinyağı">
+    <meta name="author" content="Reiwa Zeytinyağı">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Reiwa Zeytinyağı | 0.4 Özel Dizem Sızma Zeytinyağı">
+    <meta property="og:description" content="Sağlığın ve lezzetin en saf hali. 0.4 düşük asitli premium zeytinyağımızı keşfedin.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        olive: {
+                            light: '#a3b18a',
+                            DEFAULT: '#588157',
+                            dark: '#344e41',
+                        },
+                        gold: '#d4af37',
+                        cream: '#fefae0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for extra polish */
+        body {
+            background-color: #fcfcfc;
+        }
+        .hero-bg {
+            background: linear-gradient(to right, rgba(254, 250, 224, 0.9), rgba(254, 250, 224, 0.7)), url('https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 glass-card shadow-sm" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="font-serif text-3xl font-bold text-olive-dark tracking-wide">REIWA</span>
+                    <span class="ml-2 mt-1 text-sm text-gold font-medium uppercase tracking-widest hidden sm:block">Zeytinyağı</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#ozellikler" class="text-olive-dark hover:text-gold transition-colors font-medium">Neden 0.4 Dizem?</a>
+                    <a href="#hakkimizda" class="text-olive-dark hover:text-gold transition-colors font-medium">Hikayemiz</a>
+                    <a href="#iletisim" class="text-olive-dark hover:text-gold transition-colors font-medium">İletişim</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#siparis" class="bg-olive-dark text-white px-6 py-2 rounded-full font-medium hover:bg-olive transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                        Sipariş Ver
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-olive-dark hover:text-olive focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#ozellikler" class="block px-3 py-2 rounded-md text-base font-medium text-olive-dark hover:bg-cream hover:text-olive">Neden 0.4 Dizem?</a>
+                <a href="#hakkimizda" class="block px-3 py-2 rounded-md text-base font-medium text-olive-dark hover:bg-cream hover:text-olive">Hikayemiz</a>
+                <a href="#iletisim" class="block px-3 py-2 rounded-md text-base font-medium text-olive-dark hover:bg-cream hover:text-olive">İletişim</a>
+                <a href="#siparis" class="block w-full text-center mt-4 bg-olive-dark text-white px-4 py-3 rounded-md font-medium hover:bg-olive">Sipariş Ver</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+        <section id="hero" class="hero-bg relative min-h-[90vh] flex items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 md:py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Text Content -->
+                    <div class="space-y-8">
+                        <div class="inline-block px-4 py-1 rounded-full bg-cream border border-gold/30 text-olive-dark font-medium text-sm tracking-wider uppercase mb-4">
+                            Premium Sızma Zeytinyağı
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-olive-dark leading-tight">
+                            Sağlığın ve Lezzetin <br>
+                            <span class="text-olive">En Saf Hali</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-700 font-light leading-relaxed max-w-lg">
+                            Reiwa Zeytinyağı, nadir bulunan <strong class="font-semibold text-olive-dark">0.4 özel dizem</strong> düşük asit oranıyla sofralarınıza eşsiz bir yumuşaklık ve doğallık getiriyor. Şifa niyetine için, yemeklerinize sanat katın.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#siparis" class="bg-olive-dark text-white px-8 py-4 rounded-full font-semibold text-center hover:bg-olive transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                Hemen Sipariş Ver <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#ozellikler" class="bg-transparent text-olive-dark border-2 border-olive-dark px-8 py-4 rounded-full font-semibold text-center hover:bg-cream transition-all">
+                                Özellikleri Keşfet
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-4 pt-6 opacity-80">
+                            <div class="flex text-gold text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm font-medium">Müşterilerimizden 5 yıldızlı tam not.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Image/Bottle Graphic -->
+                    <div class="hidden lg:flex justify-center relative">
+                        <!-- Decorative background circle -->
+                        <div class="absolute inset-0 bg-olive-light opacity-20 rounded-full blur-3xl transform scale-75"></div>
+                        <!-- Placeholder for the bottle image -->
+                        <img src="https://placehold.co/400x600/344e41/fefae0?text=Reiwa+0.4\nZeytinyağı\nŞişesi" alt="Reiwa 0.4 Özel Dizem Zeytinyağı Şişesi" class="relative z-10 w-full max-w-md rounded-2xl shadow-2xl object-cover border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute top-10 -right-4 bg-white p-4 rounded-xl shadow-xl z-20 animate-bounce" style="animation-duration: 3s;">
+                            <div class="text-gold font-bold text-3xl text-center leading-none">0.4</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide text-center mt-1">Özel Dizem</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ozellikler" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-sm text-gold font-bold tracking-widest uppercase mb-2">Farkımız</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-olive-dark mb-6">Neden 0.4 Özel Dizem?</h3>
+                    <p class="text-gray-600 text-lg">Zeytinyağında asitlik oranı düştükçe kalite, aroma ve sağlık faydaları artar. Reiwa, en seçkin zeytinlerin kusursuz işlenmesiyle elde edilir.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Feature 1 -->
+                    <div class="bg-cream rounded-2xl p-8 text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-100 shadow-sm hover:shadow-md">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center shadow-inner mb-6 text-olive-dark text-2xl">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-olive-dark mb-3">Mükemmel Düşük Asit</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Maksimum %0.4 asit oranı, zeytinyağının midede yanma yapmadan, boğazda hafif ve hoş bir his bırakmasını sağlar. Sabahları şifa niyetine içmek için idealdir.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-cream rounded-2xl p-8 text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-100 shadow-sm hover:shadow-md">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center shadow-inner mb-6 text-olive-dark text-2xl">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-olive-dark mb-3">Erken Hasat & Soğuk Sıkım</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Zeytinler yeşilken özenle toplanır ve 27°C'nin altında soğuk sıkım yöntemiyle işlenir. Bu sayede antioksidanlar, polifenoller ve vitaminler korunur.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-cream rounded-2xl p-8 text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-100 shadow-sm hover:shadow-md">
+                        <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center shadow-inner mb-6 text-olive-dark text-2xl">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="text-xl font-serif font-bold text-olive-dark mb-3">%100 Doğal ve Şifa Kaynağı</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Hiçbir katkı maddesi içermeyen Reiwa, kalp dostudur. Salatalarınızda, mezelerinizde ve sıcak yemeklerinizde sağlık ve lezzet dengesi kurar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hakkimizda" class="py-20 bg-olive-dark text-cream relative overflow-hidden">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#d4af37 2px, transparent 2px); background-size: 30px 30px;"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2">
+                        <img src="https://placehold.co/600x400/588157/fefae0?text=Zeytin+Bahçesi" alt="Reiwa Zeytin Bahçeleri" class="rounded-2xl shadow-2xl w-full object-cover">
+                    </div>
+                    <div class="lg:w-1/2 space-y-6">
+                        <h2 class="text-sm text-gold font-bold tracking-widest uppercase">Hikayemiz</h2>
+                        <h3 class="text-3xl md:text-4xl font-serif font-bold text-white leading-tight">Doğadan İlham Alan Bir Tutku</h3>
+                        <p class="text-gray-300 leading-relaxed font-light text-lg">
+                            "Reiwa" kelimesi, güzel uyum anlamına gelir. Biz de zeytinin doğasıyla, sofralarınızın neşesi arasında kusursuz bir uyum yakalamayı hedefledik. 
+                        </p>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            Amacımız sadece bir yağ üretmek değil, asırlık zeytin ağaçlarının bilgeliğini en saf haliyle şişelemektir. 0.4 özel dizem zeytinyağımızı üretirken niceliğe değil, tamamen niteliğe odaklanıyoruz. Her bir damlası, özenin, sevginin ve toprağa duyduğumuz saygının bir yansımasıdır.
+                        </p>
+                        <div class="pt-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center">
+                                    <i class="fas fa-check text-gold"></i>
+                                </div>
+                                <span class="font-medium text-lg">Sertifikalı Kalite Garantisi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="iletisim" class="py-20 bg-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-5">
+                        
+                        <!-- Contact Info -->
+                        <div class="lg:col-span-2 bg-olive p-10 text-white flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-2xl font-serif font-bold mb-2">Bize Ulaşın</h3>
+                                <p class="text-olive-light mb-8 text-sm">Sipariş, toptan alım veya sorularınız için buradayız.</p>
+                                
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <i class="fab fa-whatsapp text-2xl text-gold mt-1"></i>
+                                        <div>
+                                            <p class="text-xs text-olive-light uppercase tracking-wider mb-1">WhatsApp Sipariş Hattı</p>
+                                            <a href="https://wa.me/905550000000" class="text-lg font-medium hover:text-gold transition-colors">+90 555 000 00 00</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start gap-4">
+                                        <i class="fas fa-envelope text-2xl text-gold mt-1"></i>
+                                        <div>
+                                            <p class="text-xs text-olive-light uppercase tracking-wider mb-1">E-Posta</p>
+                                            <a href="mailto:bilgi@reiwazeytinyagi.com" class="text-lg font-medium hover:text-gold transition-colors">bilgi@reiwazeytinyagi.com</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-4">
+                                        <i class="fas fa-map-marker-alt text-2xl text-gold mt-1"></i>
+                                        <div>
+                                            <p class="text-xs text-olive-light uppercase tracking-wider mb-1">Merkez</p>
+                                            <p class="text-lg font-medium">Ege Bölgesi, Türkiye</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-12 flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-olive-dark flex items-center justify-center hover:bg-gold hover:text-olive-dark transition-all"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-olive-dark flex items-center justify-center hover:bg-gold hover:text-olive-dark transition-all"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Contact/Order Form -->
+                        <div class="lg:col-span-3 p-10 md:p-14" id="siparis">
+                            <h3 class="text-3xl font-serif font-bold text-olive-dark mb-6">Ön Sipariş Oluştur</h3>
+                            <p class="text-gray-600 mb-8">Yeni hasat 0.4 özel dizem zeytinyağımız sınırlı stoktadır. Öncelikli sipariş vermek için formu doldurun, sizi arayalım.</p>
+                            
+                            <form action="#" method="POST" class="space-y-6" onsubmit="event.preventDefault(); alert('Tebrikler! Talebiniz başarıyla alındı. Müşteri temsilcimiz en kısa sürede sizinle iletişime geçecektir.');">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Adınız Soyadınız</label>
+                                        <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-olive focus:border-olive outline-none transition-all bg-gray-50">
+                                    </div>
+                                    <div>
+                                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telefon Numaranız</label>
+                                        <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-olive focus:border-olive outline-none transition-all bg-gray-50" placeholder="05XX XXX XX XX">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="amount" class="block text-sm font-medium text-gray-700 mb-2">İlgilendiğiniz Miktar</label>
+                                    <select id="amount" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-olive focus:border-olive outline-none transition-all bg-gray-50">
+                                        <option value="1">1 Litre (Teneke/Cam)</option>
+                                        <option value="5">5 Litre (Teneke)</option>
+                                        <option value="10">10 Litre ve üzeri</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Eklemek İstedikleriniz (Opsiyonel)</label>
+                                    <textarea id="message" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-olive focus:border-olive outline-none transition-all bg-gray-50"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full bg-olive-dark text-white font-bold py-4 rounded-lg hover:bg-olive transition-colors shadow-lg hover:shadow-xl">
+                                    Talebimi Gönder
+                                </button>
+                                <p class="text-xs text-gray-400 text-center mt-4"><i class="fas fa-lock mr-1"></i> Bilgileriniz KVKK kapsamında güvendedir, 3. şahıslarla paylaşılmaz.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center">
+                <span class="font-serif text-2xl font-bold text-olive-dark">REIWA</span>
+                <span class="ml-2 mt-1 text-xs text-gray-500 uppercase">Zeytinyağı</span>
+            </div>
+            <div class="text-sm text-gray-500">
+                &copy; 2026 Reiwa Zeytinyağı. Tüm hakları saklıdır.
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="#" class="text-gray-500 hover:text-olive-dark transition-colors">Gizlilik Politikası</a>
+                <a href="#" class="text-gray-500 hover:text-olive-dark transition-colors">Teslimat & İade</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click of a link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar styling on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
