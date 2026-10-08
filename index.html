@@ -1,960 +1,1622 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Osmaniye merkezli REİWA, özenle seçilen zeytinlerden elde edilen kaliteli, %0,4 asitlik oranına sahip REİWA 0.4 Dizem Zeytinyağını sofralarınıza ulaştırır.">
-    <meta name="keywords" content="REİWA, REİWA 0.4 Dizem Zeytinyağı, Osmaniye zeytinyağı, Osmaniye zeytinyağı satışı, kaliteli zeytinyağı, doğal zeytinyağı">
-    <title>REİWA 0.4 Dizem Zeytinyağı | Doğadan Gelen Saf Lezzet</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- Renk Paleti ve Değişkenler --- */
-        :root {
-            --olive-green: #7A8B5F;
-            --dark-green: #2C3E2D;
-            --cream: #F9F6F0;
-            --gold: #D4AF37;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --white: #FFFFFF;
-            --transition: all 0.3s ease;
-        }
-
-        /* --- Temel Ayarlar --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--cream);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-green);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        /* --- Animasyon Sınıfları --- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- Butonlar --- */
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--dark-green);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--olive-green);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(44, 62, 45, 0.2);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--dark-green);
-            border: 1px solid var(--dark-green);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--dark-green);
-            color: var(--white);
-        }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-            width: 100%;
-            margin-top: 15px;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #1ebe5d;
-        }
-
-        /* --- Navbar --- */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(249, 246, 240, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--dark-green);
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 15px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--olive-green);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* --- Hero --- */
-        .hero {
-            padding-top: 140px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: radial-gradient(circle at top right, #ffffff, var(--cream));
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 54px;
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .hero-text h2 {
-            font-size: 24px;
-            color: var(--olive-green);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            margin-bottom: 25px;
-        }
-
-        .hero-text p {
-            font-size: 18px;
-            color: var(--text-light);
-            margin-bottom: 35px;
-            max-width: 90%;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-        }
-
-        .hero-image {
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-
-        /* --- Ürün Bölümü --- */
-        .product-section {
-            background-color: var(--white);
-            border-radius: 40px;
-            margin: 40px 20px;
-            padding: 80px 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            text-align: center;
-        }
-
-        .product-section h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .spec-card {
-            background: var(--cream);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .spec-card span {
-            display: block;
-            font-size: 14px;
-            color: var(--text-light);
-            margin-bottom: 5px;
-        }
-
-        .spec-card strong {
-            font-size: 18px;
-            color: var(--dark-green);
-        }
-
-        .acidity-info {
-            background: rgba(122, 139, 95, 0.1);
-            color: var(--dark-green);
-            padding: 15px 25px;
-            border-radius: 30px;
-            display: inline-block;
-            font-size: 15px;
-            margin-bottom: 30px;
-        }
-
-        .price-tag {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--dark-green);
-            margin-bottom: 10px;
-        }
-        
-        .price-note {
-            font-size: 14px;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        /* --- Neden REİWA --- */
-        .features {
-            text-align: center;
-        }
-        
-        .features h2 {
-            font-size: 36px;
-            margin-bottom: 50px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 40px 20px;
-            border-radius: 24px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        /* --- Hakkımızda & Hikaye --- */
-        .about {
-            background-color: var(--dark-green);
-            color: var(--cream);
-            border-radius: 40px;
-            margin: 40px 20px;
-            padding: 80px 40px;
-            text-align: center;
-        }
-
-        .about h2 {
-            color: var(--gold);
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .about-text {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 60px auto;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        .journey {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .journey-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 120px;
-        }
-
-        .step-title {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .step-desc {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .journey-arrow {
-            color: var(--olive-green);
-            font-size: 20px;
-        }
-
-        /* --- Sipariş --- */
-        .order-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: flex-start;
-        }
-
-        .order-info h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .order-info p {
-            color: var(--text-light);
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px 20px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            background: var(--white);
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--olive-green);
-            box-shadow: 0 0 0 3px rgba(122, 139, 95, 0.1);
-        }
-
-        /* --- İletişim --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: var(--white);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        }
-
-        .contact-details h3 {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .contact-item {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            color: var(--text-light);
-        }
-
-        .contact-item strong {
-            color: var(--dark-green);
-            min-width: 90px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 250px;
-            border-radius: 20px;
-            border: none;
-        }
-
-        /* --- SSS --- */
-        .faq {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .accordion-item {
-            background: var(--white);
-            margin-bottom: 15px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-        }
-
-        .accordion-header {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-            color: var(--dark-green);
-        }
-
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: var(--text-light);
-            font-size: 15px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--dark-green);
-            color: var(--white);
-            padding: 60px 20px 20px;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--gold);
-            margin-bottom: 10px;
-        }
-
-        .footer-slogan {
-            font-style: italic;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--gold);
-        }
-
-        .copyright {
-            opacity: 0.5;
-            font-size: 14px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            margin-top: 20px;
-        }
-
-        /* --- Mobil Uyumluluk (Responsive) --- */
-        @media (max-width: 992px) {
-            .hero-content, .order-section {
-                grid-template-columns: 1fr;
-            }
-            .hero {
-                padding-top: 120px;
-                text-align: center;
-            }
-            .hero-text p {
-                margin: 0 auto 30px auto;
-            }
-            .hero-btns {
-                justify-content: center;
-                margin-bottom: 40px;
-            }
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .journey-arrow {
-                transform: rotate(90deg);
-            }
-            .journey {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--cream);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: 0.4s;
-            }
-            .nav-links.active {
-                left: 0;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .nav-btn {
-                display: none;
-            }
-            .hero-text h1 {
-                font-size: 40px;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .product-section, .about {
-                margin: 20px 0;
-                padding: 40px 20px;
-                border-radius: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header / Navbar -->
-    <header>
-        <div class="container navbar">
-            <a href="#" class="logo">REİWA</a>
-            <ul class="nav-links">
-                <li><a href="#hero">Ana Sayfa</a></li>
-                <li><a href="#urunumuz">Ürünümüz</a></li>
-                <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#neden">Neden REİWA?</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
-            </ul>
-            <a href="#siparis" class="btn btn-primary nav-btn">Sipariş Ver</a>
-            <div class="menu-toggle">☰</div>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>AutoCheck AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@500;600;700;800&display=swap">
+<style>
+/* Düzen: sabit üst menü, geniş hero + analiz kutusu; sonuçta ana sütun + yapışkan özet paneli (masaüstü), kart akışı (mobil) */
+:root{
+  --bg:#F3F5F9; --surface:#FFFFFF; --surface2:#F7F9FC; --ink:#0B1B3A; --muted:#58657F; --line:#E1E6EF;
+  --navy:#0B1B3A; --panel:#0B1B3A; --on-panel:#FFFFFF; --panel-muted:#A9B6D3; --panel-line:#23366A;
+  --accent:#2552D9; --accent-soft:#E7EDFC; --on-accent:#FFFFFF;
+  --good:#14935A; --warn:#E0A800; --orange:#E0680A; --bad:#D3342B; --mute:#8A94A8;
+  --good-t:#0B6B40; --warn-t:#7A5C00; --orange-t:#A04A00; --bad-t:#A5231C; --mute-t:#5A6577;
+  --shadow:0 1px 2px rgba(11,27,58,.05),0 10px 30px rgba(11,27,58,.06);
+  --f-display:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#09111F; --surface:#0F1A30; --surface2:#13213C; --ink:#E8EDF7; --muted:#97A5C0; --line:#1F2E4D;
+  --panel:#16295A; --panel-line:#2A4382; --accent:#7FA0FF; --accent-soft:#16264D; --on-accent:#08122B;
+  --good:#2FCB88; --warn:#F2C230; --orange:#FF8A2B; --bad:#FF5A50; --mute:#76839D;
+  --good-t:#5FD9A0; --warn-t:#F2C94C; --orange-t:#FF9F57; --bad-t:#FF8A82; --mute-t:#9AA7BF;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#09111F; --surface:#0F1A30; --surface2:#13213C; --ink:#E8EDF7; --muted:#97A5C0; --line:#1F2E4D;
+  --panel:#16295A; --panel-line:#2A4382; --accent:#7FA0FF; --accent-soft:#16264D; --on-accent:#08122B;
+  --good:#2FCB88; --warn:#F2C230; --orange:#FF8A2B; --bad:#FF5A50; --mute:#76839D;
+  --good-t:#5FD9A0; --warn-t:#F2C94C; --orange-t:#FF9F57; --bad-t:#FF8A82; --mute-t:#9AA7BF;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;padding-inline:0;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;letter-spacing:-.02em;text-wrap:balance;line-height:1.12}
+p{margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-inline:clamp(16px,3vw,32px)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+[hidden]{display:none!important}
+
+/* üst menü */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:20px;min-height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.02em;text-decoration:none}
+.logo svg{flex:none}
+nav.main{display:flex;gap:4px;margin-left:12px;flex:1;min-width:0}
+nav.main a{padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:500;font-size:14px;color:var(--muted);white-space:nowrap}
+nav.main a:hover{background:var(--surface);color:var(--ink)}
+.tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--muted);white-space:nowrap}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--warn)}
+.icon-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer}
+.icon-btn:hover{border-color:var(--accent)}
+.menu-btn{display:none}
+@media (max-width:900px){
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--line);padding:10px 16px 16px;margin:0}
+  nav.main.open{display:flex}
+  nav.main a{padding:12px}
+  .menu-btn{display:grid}
+  .pill.proto{display:none}
+}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,72px) 28px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(34px,5.6vw,64px);font-weight:800;letter-spacing:-.035em;line-height:1.02}
+.hero .lead{margin-top:20px;font-size:clamp(16px,1.7vw,19px);color:var(--muted);max-width:56ch}
+.slogan{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12.5px;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px;margin-bottom:20px}
+.demo-row{margin-top:28px}
+.demo-row .eyebrow{display:block;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);padding:9px 14px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer;transition:border-color .15s,transform .15s}
+.chip:hover{border-color:var(--accent);transform:translateY(-1px)}
+.preview{background:var(--panel);color:var(--on-panel);border-radius:22px;padding:22px;position:relative;border:1px solid var(--panel-line);box-shadow:var(--shadow)}
+.preview .tag{position:absolute;top:14px;right:14px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--panel-muted);border:1px solid var(--panel-line);padding:3px 8px;border-radius:999px}
+.preview h3{font-size:15px;font-weight:600;color:var(--panel-muted);margin-bottom:14px;padding-right:96px}
+.pv-row{display:flex;align-items:center;gap:18px}
+.pv-bars{flex:1;min-width:0;display:grid;gap:9px}
+.pv-bar{display:grid;grid-template-columns:78px 1fr;gap:8px;align-items:center;font-size:12px;color:var(--panel-muted)}
+.pv-bar b{display:block;height:6px;border-radius:99px;background:var(--panel-line);overflow:hidden}
+.pv-bar b i{display:block;height:100%;border-radius:99px}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.preview{display:none}}
+
+/* form kutusu */
+.analyze{padding-bottom:56px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:clamp(18px,3vw,36px)}
+.box h2{font-size:clamp(22px,2.6vw,28px);font-weight:700}
+.box .sub{color:var(--muted);margin-top:6px}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 16px;margin-top:24px}
+@media (max-width:980px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.fgrid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.lbl{font-size:13px;font-weight:600}
+.field .opt{font-weight:400;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;min-width:0;background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:15px;transition:border-color .15s,box-shadow .15s}
+.field textarea{resize:vertical;min-height:160px;line-height:1.5}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.field.err input,.field.err select{border-color:var(--bad)}
+.field .msg{display:none;font-size:12px;color:var(--bad-t)}
+.field.err .msg{display:block}
+.span2{grid-column:span 2}.span4{grid-column:1/-1}
+@media (max-width:520px){.span2{grid-column:auto}}
+details.more{margin-top:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface2)}
+details.more>summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"+";font-size:20px;line-height:1;color:var(--muted)}
+details.more[open]>summary::after{content:"–"}
+details.more .inner{padding:4px 18px 18px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:var(--surface);cursor:pointer;font-size:14px}
+.checks input{accent-color:var(--bad);width:16px;height:16px}
+.drop{display:block;border:1.5px dashed var(--line);border-radius:16px;padding:22px;text-align:center;background:var(--surface2);cursor:pointer;transition:border-color .15s,background .15s}
+.drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.drop strong{display:block;font-family:var(--f-display);font-size:16px}
+.drop span{font-size:13px;color:var(--muted)}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin-top:12px}
+.thumb{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--surface2)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb button{position:absolute;top:5px;right:5px;width:24px;height:24px;border-radius:50%;border:0;background:rgba(11,27,58,.78);color:#fff;cursor:pointer;line-height:1;font-size:15px}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:28px}
+.cta{background:var(--navy);color:#fff;border:0;border-radius:14px;padding:16px 30px;font-family:var(--f-display);font-weight:700;font-size:16px;letter-spacing:.04em;cursor:pointer;transition:transform .15s,box-shadow .15s}
+:root[data-theme="dark"] .cta{background:var(--accent);color:var(--on-accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta{background:var(--accent);color:var(--on-accent)}}
+.cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(11,27,58,.25)}
+.cta-note{font-size:13px;color:var(--muted);flex:1;min-width:220px}
+.hint{font-size:12.5px;color:var(--muted)}
+
+/* bilgi bölümleri */
+.info{padding-block:56px;border-top:1px solid var(--line)}
+.info h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;margin-top:8px;max-width:22ch}
+.info .lead{color:var(--muted);margin-top:12px;max-width:62ch}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.step b{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+.step h3{font-size:18px;margin:10px 0 6px}
+.step p{font-size:14px;color:var(--muted)}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.weights{display:grid;gap:10px;margin-top:26px;max-width:720px}
+.w-row{display:grid;grid-template-columns:minmax(120px,200px) 1fr 48px;gap:12px;align-items:center;font-size:14px}
+.w-row .track{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.w-row .track i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.factors{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.factors span{border:1px solid var(--line);background:var(--surface);padding:7px 12px;border-radius:999px;font-size:14px}
+.status-table{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px}
+.status-table td,.status-table th{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.status-table th{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tscroll{overflow-x:auto}
+pre.code{background:var(--panel);color:#DCE5FA;border-radius:14px;padding:16px 18px;overflow-x:auto;font-family:var(--f-mono);font-size:12.5px;line-height:1.6;margin:18px 0 0}
+footer.site{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:13px}
+
+/* yükleme */
+.loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;padding:20px}
+.loader-card{width:min(460px,100%);background:var(--panel);color:var(--on-panel);border-radius:26px;padding:32px;border:1px solid var(--panel-line);box-shadow:var(--shadow)}
+.loader-card h3{font-size:20px;margin-bottom:6px}
+.loader-card p.s{color:var(--panel-muted);font-size:14px;margin-bottom:22px}
+.l-steps{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.l-steps li{display:flex;align-items:center;gap:12px;color:var(--panel-muted);font-size:15px;transition:color .3s}
+.l-steps li .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--panel-line);display:grid;place-items:center;flex:none;transition:all .3s}
+.l-steps li.on{color:#fff}
+.l-steps li.on .dot{border-color:#7FA0FF;border-top-color:transparent;animation:spin .8s linear infinite}
+.l-steps li.done{color:#fff}
+.l-steps li.done .dot{background:var(--good);border-color:var(--good);animation:none}
+.l-steps li.done .dot::after{content:"";width:6px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.l-bar{height:5px;border-radius:99px;background:var(--panel-line);margin-top:24px;overflow:hidden}
+.l-bar i{display:block;height:100%;width:0;background:#7FA0FF;transition:width .6s ease}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* sonuç ekranı */
+.res-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding-block:20px 8px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 16px;font-weight:600;font-size:14px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+:root[data-theme="dark"] .btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}}
+.btn[aria-disabled="true"]{opacity:.9}
+.banner{display:flex;gap:12px;align-items:flex-start;border:1px solid color-mix(in srgb,var(--warn) 45%,var(--line));background:color-mix(in srgb,var(--warn) 10%,var(--surface));border-radius:14px;padding:12px 16px;font-size:13.5px;margin-block:8px 18px}
+.banner svg{flex:none;margin-top:2px;color:var(--warn-t)}
+.car-head h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em}
+.car-meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:10px;color:var(--muted);font-weight:500}
+.car-meta span:not(:last-child)::after{content:"•";margin-left:10px;color:var(--line)}
+.hero-res{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:22px}
+@media (max-width:900px){.hero-res{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(16px,2.4vw,26px);box-shadow:var(--shadow)}
+.card.dark{background:var(--panel);color:var(--on-panel);border-color:var(--panel-line)}
+.score-card{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.ring{position:relative;width:176px;height:176px;flex:none}
+.ring svg{display:block;transform:rotate(-90deg)}
+.ring .c{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring .c b{font-family:var(--f-display);font-size:48px;font-weight:800;line-height:1;letter-spacing:-.04em}
+.ring .c small{font-size:12px;color:var(--muted);margin-top:4px;font-weight:500}
+.score-txt{flex:1;min-width:220px}
+.score-txt .lab{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.score-txt h2{font-size:26px;margin:6px 0 8px}
+.score-txt p{color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%;background:currentColor}
+.badge.good{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good-t)}
+.badge.warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn-t)}
+.badge.orange{background:color-mix(in srgb,var(--orange) 15%,transparent);color:var(--orange-t)}
+.badge.bad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad-t)}
+.badge.mute{background:color-mix(in srgb,var(--mute) 16%,transparent);color:var(--mute-t)}
+.badge.mute i{background:var(--mute)}
+.conf{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.conf::before{content:"";width:18px;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--c) var(--p),var(--line) var(--p))}
+.conf.hi{--c:var(--good);--p:100%}.conf.mid{--c:var(--warn);--p:62%}.conf.lo{--c:var(--orange);--p:28%}
+.decision{display:flex;flex-direction:column;gap:12px}
+.decision .q{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--panel-muted)}
+.decision .d-title{display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em}
+.decision .d-title i{width:16px;height:16px;border-radius:50%;flex:none}
+.d-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.d-cols{grid-template-columns:1fr}}
+.d-cols h4{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--panel-muted);margin-bottom:6px;font-family:var(--f-body);font-weight:600}
+.d-cols ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px}
+.d-cols li{display:flex;gap:8px}
+.d-cols li::before{content:"";width:6px;height:6px;border-radius:50%;margin-top:8px;flex:none}
+.d-cols .pro li::before{background:var(--good)}
+.d-cols .con li::before{background:var(--orange)}
+.maxbuy{margin-top:auto;border-top:1px solid var(--panel-line);padding-top:12px;display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.maxbuy span{color:var(--panel-muted);font-size:13px}
+.maxbuy b{font-family:var(--f-mono);font-size:22px;font-weight:600}
+
+.chipnav{position:sticky;top:calc(62px + env(safe-area-inset-top,0px));z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);margin-top:20px;border-bottom:1px solid var(--line)}
+.chipnav .in{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.chipnav .in::-webkit-scrollbar{display:none}
+.chipnav a{flex:none;padding:7px 13px;border-radius:999px;font-size:13.5px;font-weight:600;text-decoration:none;color:var(--muted);border:1px solid transparent}
+.chipnav a:hover{color:var(--ink)}
+.chipnav a.on{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.dash{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;margin-top:22px;align-items:start}
+@media (max-width:1100px){.dash{grid-template-columns:1fr}.side{display:none}}
+.stack{display:grid;gap:20px;min-width:0}
+.side{position:sticky;top:calc(62px + 62px + env(safe-area-inset-top,0px));display:grid;gap:14px}
+.side .card{padding:18px}
+.side h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-family:var(--f-body);font-weight:600;margin-bottom:10px}
+.kv{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding-block:6px;border-bottom:1px dashed var(--line)}
+.kv:last-child{border:0}
+.kv b{font-family:var(--f-mono);font-weight:500;text-align:right}
+.sec{scroll-margin-top:136px;min-width:0}
+.analyze,.info{scroll-margin-top:70px}
+.sec-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 16px;align-items:flex-start;margin-bottom:18px}
+.sec-h h2{font-size:clamp(21px,2.4vw,26px);font-weight:700;margin-top:4px}
+.sec-h .eyebrow{display:block}
+.tint{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+
+/* fiyat */
+.price-top{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.price-top{grid-template-columns:1fr}}
+.pt{background:var(--surface2);border:1px solid var(--line);border-radius:16px;padding:16px 18px;min-width:0}
+.pt span{display:block;font-size:13px;color:var(--muted)}
+.pt strong{display:block;font-family:var(--f-mono);font-weight:600;font-size:clamp(18px,2.2vw,24px);margin-top:4px;overflow-wrap:anywhere;letter-spacing:-.02em}
+.pt.big strong{font-size:clamp(24px,3vw,32px)}
+.verdict{margin-top:14px;display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:12px;font-family:var(--f-display);font-weight:700;letter-spacing:.02em}
+.verdict.good{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good-t)}
+.verdict.warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn-t)}
+.verdict.orange{background:color-mix(in srgb,var(--orange) 15%,transparent);color:var(--orange-t)}
+.verdict.bad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad-t)}
+.gauge{position:relative;margin:56px 6px 84px;height:14px}
+.g-track{position:absolute;inset:0;border-radius:99px;background:linear-gradient(90deg,color-mix(in srgb,var(--good) 40%,var(--line)),color-mix(in srgb,var(--warn) 40%,var(--line)) 55%,color-mix(in srgb,var(--bad) 45%,var(--line)))}
+.g-band{position:absolute;top:-4px;bottom:-4px;border-radius:8px;border:2px solid var(--ink);background:color-mix(in srgb,var(--surface) 55%,transparent)}
+.g-mark{position:absolute;top:0;width:0}
+.g-mark::before{content:"";position:absolute;left:-1.5px;width:3px;height:30px;border-radius:2px;background:var(--ink)}
+.g-mark.up::before{bottom:6px}.g-mark.dn::before{top:6px}
+.g-mark .t{position:absolute;white-space:nowrap;font-size:12px;line-height:1.25}
+.g-mark .t b{display:block;font-family:var(--f-mono);font-weight:600;font-size:13px}
+.g-mark.up .t{bottom:40px}.g-mark.dn .t{top:40px}
+.g-mark.listing::before{background:var(--accent);width:4px;left:-2px}
+.g-ends{position:absolute;left:0;right:0;top:20px;display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)}
+.mini-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:6px}
+@media (max-width:860px){.mini-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mini{border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.mini span{display:block;font-size:12.5px;color:var(--muted)}
+.mini b{display:block;font-family:var(--f-mono);font-weight:600;font-size:15px;margin-top:3px;overflow-wrap:anywhere}
+.neg{margin-top:18px;background:var(--panel);color:var(--on-panel);border-radius:18px;padding:20px;border:1px solid var(--panel-line)}
+.neg h3{font-size:16px;margin-bottom:14px}
+.neg-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.neg-row{grid-template-columns:1fr}}
+.neg-row div{border:1px solid var(--panel-line);border-radius:14px;padding:12px 14px}
+.neg-row span{display:block;font-size:12.5px;color:var(--panel-muted)}
+.neg-row b{font-family:var(--f-mono);font-size:19px;font-weight:600}
+.fact-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:10px}
+@media (max-width:980px){.fact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:13.5px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.fact small{font-size:11.5px;color:var(--muted)}
+.fact.used small{color:var(--good-t)}
+.fact.no{background:var(--surface2)}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* skor kırılımı */
+.fbars{display:grid;gap:12px}
+.fbar{display:grid;grid-template-columns:minmax(0,190px) 1fr 64px;gap:8px 14px;align-items:center;font-size:14px}
+.fbar .nm small{display:block;color:var(--muted);font-size:12px}
+.fbar .tr{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.fbar .tr i{display:block;height:100%;width:0;border-radius:99px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.fbar b{font-family:var(--f-mono);font-weight:500;text-align:right}
+@media (max-width:560px){.fbar{grid-template-columns:1fr 54px}.fbar .tr{grid-column:1/-1;order:3}}
+.c-good{background:var(--good)}.c-warn{background:var(--warn)}.c-orange{background:var(--orange)}.c-bad{background:var(--bad)}
+
+/* motor, şanzıman */
+.eng-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:12px;margin-bottom:16px}
+@media (max-width:760px){.eng-head{grid-template-columns:1fr}}
+.rows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:860px){.rows{grid-template-columns:1fr}}
+.row{border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:6px;min-width:0}
+.row .rt{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.row .rt b{font-family:var(--f-display);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.row p{font-size:13.5px;color:var(--muted)}
+.row.na{opacity:.66}
+
+/* kronik */
+.chronic{display:grid;gap:10px}
+details.prob{border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+details.prob>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px 16px}
+details.prob>summary::-webkit-details-marker{display:none}
+details.prob .sev{width:6px;align-self:stretch;border-radius:99px}
+details.prob h3{font-size:16px}
+details.prob .cost-sm{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:2px}
+details.prob .chev{width:20px;height:20px;transition:transform .2s;color:var(--muted)}
+details.prob[open] .chev{transform:rotate(180deg)}
+.prob-body{padding:0 16px 16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}
+@media (max-width:640px){.prob-body{grid-template-columns:1fr}}
+.prob-body .k{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.prob-body p{font-size:14px}
+.range3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;grid-column:1/-1}
+@media (max-width:480px){.range3{grid-template-columns:1fr}}
+.range3 div{border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+.range3 span{display:block;font-size:12px;color:var(--muted)}
+.range3 b{font-family:var(--f-mono);font-size:14px;font-weight:500}
+
+/* checklist */
+.groups{display:grid;gap:16px}
+.grp h3{display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.grp h3 i{width:10px;height:10px;border-radius:50%}
+.wk{display:grid;gap:8px}
+.wk-item{border:1px solid var(--line);border-radius:14px;padding:11px 14px}
+.wk-item .t{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.how-btn{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.how-btn:hover{border-color:var(--accent)}
+.how{margin-top:10px;font-size:14px;color:var(--muted);border-left:3px solid var(--accent);padding:2px 0 2px 12px}
+
+/* foto */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:14px}
+.photo-grid .thumb{aspect-ratio:4/3}
+.finding{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px}
+.finding .ft{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center}
+.finding h4{font-size:15px}
+.example-tag{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--orange-t);border:1px solid color-mix(in srgb,var(--orange) 45%,var(--line));border-radius:999px;padding:2px 8px}
+.look-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.look-list span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--surface2)}
+
+/* km */
+.km-bar{position:relative;height:14px;border-radius:99px;background:var(--line);margin:44px 4px 34px}
+.km-fill{position:absolute;left:0;top:0;bottom:0;border-radius:99px;width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.km-norm{position:absolute;top:-8px;bottom:-8px;width:3px;background:var(--ink);border-radius:2px}
+.km-norm span,.km-you span{position:absolute;white-space:nowrap;font-size:12px}
+.km-norm span{top:-28px;transform:translateX(-50%)}
+.km-you span{bottom:-28px;transform:translateX(-50%)}
+.km-you{position:absolute;top:-4px;bottom:-4px;width:0}
+.warn-box{display:flex;gap:12px;border-radius:14px;padding:14px 16px;border:1px solid color-mix(in srgb,var(--bad) 40%,var(--line));background:color-mix(in srgb,var(--bad) 8%,var(--surface));margin-bottom:14px}
+.warn-box svg{flex:none;color:var(--bad-t);margin-top:2px}
+.warn-box h4{color:var(--bad-t);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.warn-box.soft{border-color:color-mix(in srgb,var(--warn) 45%,var(--line));background:color-mix(in srgb,var(--warn) 9%,var(--surface))}
+.warn-box.soft svg,.warn-box.soft h4{color:var(--warn-t)}
+.dmg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:700px){.dmg{grid-template-columns:1fr}}
+
+/* bakım */
+.scen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
+@media (max-width:800px){.scen{grid-template-columns:1fr}}
+.sc{border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:6px;min-width:0}
+.sc h4{display:flex;align-items:center;gap:8px;font-size:15px}
+.sc h4 i{width:10px;height:10px;border-radius:50%}
+.sc b{font-family:var(--f-mono);font-size:clamp(16px,1.8vw,20px);font-weight:600;overflow-wrap:anywhere}
+.sc p{font-size:13px;color:var(--muted)}
+.mtable{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.mtable th,.mtable td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line)}
+.mtable th{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mtable td.n{font-family:var(--f-mono);white-space:nowrap}
+
+/* ekspertiz */
+.exp-head{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:14px}
+.prog{flex:1;min-width:200px}
+.prog .tr{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:6px}
+.prog .tr i{display:block;height:100%;background:var(--good);width:0;border-radius:99px;transition:width .35s}
+.ex-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (max-width:760px){.ex-list{grid-template-columns:1fr}}
+.ex{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;min-height:48px;background:var(--surface)}
+.ex input{width:22px;height:22px;accent-color:var(--good);flex:none}
+.ex:has(input:checked){background:color-mix(in srgb,var(--good) 8%,var(--surface));border-color:color-mix(in srgb,var(--good) 40%,var(--line))}
+.ex:has(input:checked) span{color:var(--muted);text-decoration:line-through}
+.ex-result{margin-top:14px}
+
+.share{display:flex;flex-wrap:wrap;gap:10px}
+.share-msg{margin-top:12px;font-size:13.5px}
+.api-chip{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--mute-t);background:color-mix(in srgb,var(--mute) 16%,transparent);border-radius:999px;padding:2px 7px}
+.disc{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:4px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:11px 18px;border-radius:12px;font-size:14px;opacity:0;pointer-events:none;transition:all .25s;z-index:120;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.spec{border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0;background:var(--surface2)}
+.spec span{display:block;font-size:12px;color:var(--muted)}
+.spec b{display:block;font-family:var(--f-display);font-size:16px;margin-top:2px;overflow-wrap:anywhere}
+.warn-box.ok{border-color:color-mix(in srgb,var(--good) 45%,var(--line));background:color-mix(in srgb,var(--good) 8%,var(--surface))}
+.warn-box.ok svg,.warn-box.ok h4{color:var(--good-t)}
+.warn-box h4+p{margin-top:2px}
+.v-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;align-items:center}
+.v-actions .cta{padding:14px 34px}
+.cand{border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
+.cand b{font-family:var(--f-display)}
+.vwrap{padding-block:12px 56px;display:grid;gap:18px}
+.vwrap h1{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.03em}
+.vtbl{overflow-x:auto}
+.mini small.hint{display:block;margin-top:2px}
+</style>
+
+<div id="top"></div>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top" data-home aria-label="AutoCheck AI ana sayfa">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--navy)"/><path d="M7 21a9 9 0 1 1 18 0" fill="none" stroke="#7FA0FF" stroke-width="2.6" stroke-linecap="round"/><path d="M12.5 17.2l3 3.1 5.2-6.4" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>AutoCheck AI</span>
+    </a>
+    <nav class="main" id="nav" aria-label="Ana menü">
+      <a href="#analiz" data-go="analiz">Araç Analizi</a>
+      <a href="#nasil" data-go="nasil">Nasıl Çalışır?</a>
+      <a href="#riskler" data-go="riskler">Riskler</a>
+      <a href="#fiyat-bilgi" data-go="fiyat-bilgi">Fiyat Analizi</a>
+      <a href="#hakkimizda" data-go="hakkimizda">Hakkımızda</a>
+    </nav>
+    <div class="tools">
+      <span class="pill proto"><i></i>Prototip · piyasa verisi bağlı değil</span>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Açık / koyu tema"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menüyü aç" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ANA SAYFA -->
+<div id="home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="slogan">İlanı görmeden önce, riskini gör.</span>
+        <h1>Bir aracın ilanına değil, gerçek riskine bak.</h1>
+        <p class="lead">Sahibinden ilanındaki araç bilgilerini gir. AutoCheck AI; piyasa fiyatını, mekanik riskleri, kronik problemleri, bakım maliyetlerini ve satın alma riskini analiz etsin.</p>
+        <div class="demo-row">
+          <span class="eyebrow">Demo modu · örnek bir araç seç</span>
+          <div class="chips" id="demoChips"></div>
         </div>
-    </header>
+      </div>
+      <aside class="preview" aria-label="Örnek rapor önizlemesi">
+        <span class="tag">Örnek önizleme</span>
+        <h3>Rapor nasıl görünür?</h3>
+        <div class="pv-row">
+          <div class="ring" style="width:112px;height:112px">
+            <svg width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="48" fill="none" stroke="var(--panel-line)" stroke-width="9"/><circle cx="56" cy="56" r="48" fill="none" stroke="#E0A800" stroke-width="9" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="66"/></svg>
+            <div class="c"><b style="font-size:30px;color:#fff">78</b><small style="color:#A9B6D3">/ 100</small></div>
+          </div>
+          <div class="pv-bars">
+            <div class="pv-bar"><span>Motor</span><b><i style="width:82%;background:#2FCB88"></i></b></div>
+            <div class="pv-bar"><span>Şanzıman</span><b><i style="width:68%;background:#E0A800"></i></b></div>
+            <div class="pv-bar"><span>Fiyat</span><b><i style="width:55%;background:#FF8A2B"></i></b></div>
+            <div class="pv-bar"><span>Hasar</span><b><i style="width:90%;background:#2FCB88"></i></b></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-    <!-- Hero Bölümü -->
-    <section id="hero" class="hero">
-        <div class="container hero-content">
-            <div class="hero-text fade-in">
-                <h1>Doğadan Gelen Saf Lezzet</h1>
-                <h2>REİWA 0.4 Dizem Zeytinyağı</h2>
-                <p>Osmaniye merkezli REİWA, özenle seçilen zeytinlerden elde edilen kaliteli zeytinyağını sofralarınıza ulaştırır.</p>
-                <div class="hero-btns">
-                    <a href="#urunumuz" class="btn btn-primary">Ürünü İncele</a>
-                    <a href="#siparis" class="btn btn-outline">Sipariş Ver</a>
+  <section class="analyze" id="analiz">
+    <div class="wrap">
+      <form class="box" id="form" novalidate autocomplete="off">
+        <h2>Araç bilgilerini gir</h2>
+        <p class="sub">Zorunlu alanlar yıldızlıdır. Ne kadar çok bilgi girersen rapor o kadar sağlıklı olur.</p>
+
+        <div class="fgrid">
+          <div class="field"><label for="f-brand">Marka *</label><input id="f-brand" list="dl-brand" placeholder="Örn. Volkswagen"><span class="msg">Marka gerekli.</span></div>
+          <div class="field"><label for="f-model">Model *</label><input id="f-model" placeholder="Örn. Golf"><span class="msg">Model gerekli.</span></div>
+          <div class="field"><label for="f-year">Model yılı *</label><select id="f-year"><option value="">Seç</option></select><span class="msg">Model yılı seç.</span></div>
+          <div class="field"><label for="f-engine">Motor *</label><input id="f-engine" list="dl-engine" placeholder="Örn. 1.6 TDI 115 PS"><span class="msg">Motor bilgisi gerekli.</span></div>
+          <div class="field"><label for="f-fuel">Yakıt tipi *</label><select id="f-fuel"><option value="">Seç</option><option>Benzin</option><option>Dizel</option><option>LPG'li (Benzin)</option><option>Hibrit</option><option>Elektrik</option></select><span class="msg">Yakıt tipini seç.</span></div>
+          <div class="field"><label for="f-gear">Vites *</label><select id="f-gear"><option value="">Seç</option><option value="Manuel">Manuel</option><option value="Otomatik">Otomatik (tork konvertörlü)</option><option value="Yarı Otomatik">Yarı otomatik (DSG / EDC / DCT)</option><option value="CVT">CVT</option></select><span class="msg">Vites tipini seç.</span></div>
+          <div class="field"><label for="f-km">Kilometre *</label><input id="f-km" inputmode="numeric" placeholder="Örn. 142.000"><span class="msg">Kilometre gerekli.</span></div>
+          <div class="field"><label for="f-price">İlan fiyatı (TL) *</label><input id="f-price" inputmode="numeric" placeholder="Örn. 1.250.000"><span class="msg">İlan fiyatı gerekli.</span></div>
+          <div class="field"><label for="f-country">Ülke / pazar *</label><select id="f-country"><option value="TR" selected>Türkiye (varsayılan)</option><option value="DIS">Türkiye dışı (ABD / Avrupa)</option></select></div>
+          <div class="field"><label for="f-cc">Motor hacmi <span class="opt">(litre veya cc)</span></label><input id="f-cc" placeholder="Örn. 1.6 veya 1598"></div>
+          <div class="field"><label for="f-power">Motor gücü (HP)</label><input id="f-power" inputmode="numeric" placeholder="Örn. 170"></div>
+          <div class="field"><label for="f-trim">Donanım paketi <span class="opt">(opsiyonel)</span></label><input id="f-trim" placeholder="Örn. M Sport"></div>
+        </div>
+        <p class="hint" style="margin-top:12px">Motor hacmi boşsa motor alanından okunur. Aynı model adı farklı ülkelerde farklı motor ve donanımla satılır; bu yüzden analizden önce Türkiye varyantını birlikte doğrulayacağız.</p>
+
+        <details class="more" id="moreBox">
+          <summary>Ek detaylar <span class="opt hint" style="font-weight:400">opsiyonel · doğruluğu artırır</span></summary>
+          <div class="inner">
+            <div class="fgrid" style="margin-top:8px">
+              <div class="field"><label for="f-body">Kasa tipi <span class="opt">(opsiyonel)</span></label><select id="f-body"><option value="">Belirtilmedi</option><option>Sedan</option><option>Hatchback</option><option>Station Wagon</option><option>SUV / Crossover</option><option>MPV</option><option>Coupe / Cabrio</option></select></div>
+              <div class="field"><label for="f-drive">Çekiş <span class="opt">(opsiyonel)</span></label><select id="f-drive"><option value="">Belirtilmedi</option><option>Önden çekiş</option><option>Arkadan itiş</option><option>4x4 / AWD</option></select></div>
+              <div class="field"><label for="f-chassis">Kasa kodu / jenerasyon <span class="opt">(opsiyonel)</span></label><input id="f-chassis" placeholder="Örn. G20 LCI"></div>
+              <div class="field"><label for="f-damage">Hasar kaydı <span class="opt">(opsiyonel)</span></label><select id="f-damage"><option value="">Belirtilmedi</option><option value="yok">Yok</option><option value="var">Var</option><option value="bilinmiyor">Bilmiyorum</option></select></div>
+              <div class="field span2"><label for="f-changed">Değişen parçalar <span class="opt">(virgülle ayır)</span></label><input id="f-changed" placeholder="Örn. Ön tampon, sağ far"></div>
+              <div class="field span2"><label for="f-painted">Boyanan parçalar <span class="opt">(virgülle ayır)</span></label><input id="f-painted" placeholder="Örn. Kaput, sol çamurluk"></div>
+              <div class="field"><label for="f-tramer">Tramer tutarı (TL) <span class="opt">(opsiyonel)</span></label><input id="f-tramer" inputmode="numeric" placeholder="Örn. 18.000"></div>
+              <div class="field"><label for="f-service">Servis geçmişi <span class="opt">(opsiyonel)</span></label><select id="f-service"><option value="">Belirtilmedi</option><option value="yetkili">Yetkili serviste, faturalı</option><option value="ozel">Özel serviste, faturalı</option><option value="kismi">Kısmi / eksik kayıt</option><option value="yok">Kayıt yok</option></select></div>
+              <div class="field"><label for="f-last">Son bakım tarihi <span class="opt">(opsiyonel)</span></label><input id="f-last" type="date"></div>
+              <div class="field span4"><label for="f-link">Sahibinden ilan linki <span class="opt">(opsiyonel)</span></label><input id="f-link" type="url" placeholder="https://www.sahibinden.com/ilan/..."><span class="hint">Bağlantıdan otomatik veri çekme bu prototipte kapalı. Link yalnızca rapora not olarak eklenir; bilgileri elle gir veya aşağıya yapıştır.</span></div>
+              <div class="field span4"><span class="lbl">Kritik bölgede işlem var mı? <span class="opt" style="font-weight:400">(biliyorsan işaretle)</span></span>
+                <div class="checks">
+                  <label><input type="checkbox" id="c-sasi"> Şasi</label>
+                  <label><input type="checkbox" id="c-podye"> Podye</label>
+                  <label><input type="checkbox" id="c-direk"> Direk</label>
+                  <label><input type="checkbox" id="c-airbag"> Airbag açılmış / değişmiş</label>
                 </div>
+              </div>
             </div>
-            <div class="hero-image fade-in">
-                <!-- PLACEHOLDER GÖRSEL: Burayı kendi şık zeytinyağı şişesi fotoğrafınızla değiştirebilirsiniz -->
-                <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="REİWA Zeytinyağı Şişesi">
-            </div>
-        </div>
-    </section>
+          </div>
+        </details>
 
-    <!-- Ürün Bölümü -->
-    <section id="urunumuz">
-        <div class="container fade-in">
-            <div class="product-section">
-                <h2>REİWA 0.4 Dizem Zeytinyağı</h2>
-                
-                <div class="acidity-info">
-                    <strong>%0,4 asitlik</strong>, zeytinyağının düşük asitlik değerine sahip, yüksek kalitede olduğunu gösterir.
-                </div>
+        <details class="more" id="compBox" style="margin-top:20px">
+          <summary>Türkiye'deki benzer ilanlar <span class="opt hint" style="font-weight:400">fiyat doğruluğu için önerilir</span></summary>
+          <div class="inner">
+            <div class="field"><label for="f-comps">Benzer ilanları yapıştır <span class="opt">(her satıra bir ilan)</span></label>
+              <textarea id="f-comps" style="min-height:130px" placeholder="fiyat; km; yıl; motor hacmi; donanım&#10;4.150.000; 78.000; 2023; 1.6; M Sport&#10;4.020.000; 85.000; 2023; 1.6"></textarea>
+              <span class="hint">Yalnızca Türkiye'deki TL ilanlarını gir. Sadece fiyat yazan satırlar da kabul edilir. $ veya € içeren satırlar ve farklı motor hacmindeki ilanlar hesaptan otomatik çıkarılır.</span>
+            </div>
+            <div class="fgrid" style="margin-top:12px">
+              <div class="field span2"><label for="f-city">Şehir <span class="opt">(opsiyonel)</span></label><input id="f-city" placeholder="Örn. İstanbul"></div>
+              <div class="field span2"><label for="f-compdate">İlanların toplandığı tarih</label><input id="f-compdate" type="date"></div>
+            </div>
+          </div>
+        </details>
 
-                <div class="specs-grid">
-                    <div class="spec-card">
-                        <span>Ürün Tipi</span>
-                        <strong>Natürel Sızma Zeytinyağı</strong>
-                    </div>
-                    <div class="spec-card">
-                        <span>Asitlik Oranı</span>
-                        <strong>%0,4</strong>
-                    </div>
-                    <div class="spec-card">
-                        <span>Üretim Yeri</span>
-                        <strong>Osmaniye</strong>
-                    </div>
-                    <div class="spec-card">
-                        <span>Net Miktar</span>
-                        <strong>5 Litre / 1 Litre</strong>
-                    </div>
-                </div>
-
-                <div class="price-area">
-                    <!-- Fiyat belli olduğunda buraya yazabilirsiniz -->
-                    <div class="price-tag">Fiyat bilgisi için iletişime geçin.</div>
-                    <div class="price-note">* Güncel fiyatlandırma ve boyut seçenekleri için lütfen bize ulaşın.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Neden REİWA? -->
-    <section id="neden" class="features container fade-in">
-        <h2>Neden REİWA?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🌿</div>
-                <h3>Doğal Üretim</h3>
-                <p>Zeytinin doğal karakterini korumaya odaklanan üretim anlayışı.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🫒</div>
-                <h3>Kaliteli Zeytin</h3>
-                <p>Hasat zamanı özenle seçilen en kaliteli zeytinlerden üretilir.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📍</div>
-                <h3>Osmaniye Merkezli</h3>
-                <p>Osmaniye’den Türkiye’nin dört bir yanına özenle ulaşır.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💚</div>
-                <h3>Güvenilir Marka</h3>
-                <p>Kaliteli ürünü, şeffaf bilgilerle müşteriye sunmayı hedefler.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hakkımızda ve Yolculuk -->
-    <section id="hakkimizda">
-        <div class="container fade-in">
-            <div class="about">
-                <h2>Hakkımızda</h2>
-                <p class="about-text">
-                    REİWA, Osmaniye merkezli bir zeytinyağı markasıdır. Amacımız, kaliteli zeytinyağını sade, güvenilir ve ulaşılabilir bir şekilde müşterilerimizle buluşturmaktır. Tarladan sofranıza uzanan bu süreçte doğallıktan taviz vermiyoruz.
-                </p>
-                
-                <h3 style="color:var(--white); margin-bottom: 30px; font-family:'Montserrat', sans-serif; font-weight: 500;">Zeytinin Yolculuğu</h3>
-                <div class="journey">
-                    <div class="journey-step">
-                        <span class="step-title">Zeytin</span>
-                        <span class="step-desc">Doğal ortamında</span>
-                    </div>
-                    <div class="journey-arrow">➔</div>
-                    <div class="journey-step">
-                        <span class="step-title">Hasat</span>
-                        <span class="step-desc">Özenle toplanır</span>
-                    </div>
-                    <div class="journey-arrow">➔</div>
-                    <div class="journey-step">
-                        <span class="step-title">Sıkım</span>
-                        <span class="step-desc">Soğuk sıkım tekniği</span>
-                    </div>
-                    <div class="journey-arrow">➔</div>
-                    <div class="journey-step">
-                        <span class="step-title">Şişeleme</span>
-                        <span class="step-desc">Güvenli paketleme</span>
-                    </div>
-                    <div class="journey-arrow">➔</div>
-                    <div class="journey-step">
-                        <span class="step-title">Sofranız</span>
-                        <span class="step-desc">Afiyetle tüketilir</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sipariş Bölümü -->
-    <section id="siparis" class="container fade-in">
-        <div class="order-section">
-            <div class="order-info">
-                <h2>REİWA 0.4 Dizem Zeytinyağınızı Şimdi Sipariş Edin</h2>
-                <p>Aşağıdaki formu doldurarak sipariş talebinizi hızlıca WhatsApp üzerinden bize iletebilirsiniz. Ekibimiz sizinle en kısa sürede iletişime geçecektir.</p>
-                <button class="btn btn-whatsapp" onclick="directWhatsapp()">📲 WhatsApp'tan Direkt Yazın</button>
-            </div>
-            <div class="order-form-container">
-                <form id="orderForm" style="background:var(--white); padding:30px; border-radius:24px; box-shadow:0 10px 30px rgba(0,0,0,0.03);">
-                    <div class="form-group">
-                        <input type="text" id="name" class="form-control" placeholder="Adınız Soyadınız" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" class="form-control" placeholder="Telefon Numaranız" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" id="quantity" class="form-control" placeholder="Ürün Adedi (Örn: 2 Adet 5 Litre)" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="address" class="form-control" rows="3" placeholder="Açık Adresiniz" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sipariş Oluştur (WhatsApp'a Git)</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- İletişim -->
-    <section id="iletisim" class="container fade-in">
-        <div class="contact-grid">
-            <div class="contact-details">
-                <h3>İletişim Bilgileri</h3>
-                <div class="contact-item">
-                    <strong>Adres:</strong>
-                    <span>Osmaniye Merkez / Osmaniye, Türkiye</span>
-                </div>
-                <div class="contact-item">
-                    <strong>Telefon:</strong>
-                    <span>+90 555 123 45 67</span>
-                </div>
-                <div class="contact-item">
-                    <strong>WhatsApp:</strong>
-                    <span>+90 555 123 45 67</span>
-                </div>
-                <div class="contact-item">
-                    <strong>E-posta:</strong>
-                    <span>bilgi@reiwazeytinyagi.com</span>
-                </div>
-            </div>
-            <div class="map-container">
-                <!-- Osmaniye Merkez Google Maps iFrame -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101740.3541575854!2d36.1683407986034!3d37.07548480749065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152f638fdf1e4115%3A0xc665e77747e9ce90!2sOsmaniye%2C%20Osmaniye%20Merkez%2FOsmaniye!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- SSS -->
-    <section class="container faq fade-in">
-        <h2>Sıkça Sorulan Sorular</h2>
-        
-        <div class="accordion-item">
-            <div class="accordion-header">Zeytinyağının asitlik oranı nedir? <span>+</span></div>
-            <div class="accordion-content">
-                <p style="padding-bottom: 20px;">Ürünümüz %0,4 asitlik oranına sahiptir. Bu, yağın kalitesinin ve saflığının yüksek olduğunu gösterir.</p>
-            </div>
-        </div>
-        
-        <div class="accordion-item">
-            <div class="accordion-header">REİWA nerede üretiliyor? <span>+</span></div>
-            <div class="accordion-content">
-                <p style="padding-bottom: 20px;">REİWA zeytinyağları Osmaniye merkezlidir. Bölgenin özenle seçilen zeytinlerinden elde edilir.</p>
-            </div>
-        </div>
-        
-        <div class="accordion-item">
-            <div class="accordion-header">Nasıl sipariş verebilirim? <span>+</span></div>
-            <div class="accordion-content">
-                <p style="padding-bottom: 20px;">Sitemizdeki sipariş formunu doldurarak veya doğrudan WhatsApp butonuna tıklayarak siparişinizi bize hızlıca iletebilirsiniz.</p>
-            </div>
+        <div class="field" style="margin-top:20px">
+          <label for="f-desc">İlan açıklamasını buraya yapıştır <span class="opt">(opsiyonel)</span></label>
+          <textarea id="f-desc" placeholder="Sahibinden ilanındaki açıklamayı olduğu gibi yapıştır. Sistem şasi, podye, tramer, boya, bakım gibi ifadeleri tarar."></textarea>
         </div>
 
-        <div class="accordion-item">
-            <div class="accordion-header">Kargo var mı? <span>+</span></div>
-            <div class="accordion-content">
-                <p style="padding-bottom: 20px;">Evet, Türkiye geneline gönderim yapmaktayız. Kargo şartları ve süreleri hakkında detaylı bilgi almak için bizimle iletişime geçebilirsiniz.</p>
-            </div>
+        <div class="field" style="margin-top:18px">
+          <span class="lbl">İlan fotoğraflarını yükle <span class="opt" style="font-weight:400">(opsiyonel)</span></span>
+          <label class="drop" id="drop" for="f-photos">
+            <strong>JPG veya PNG dosyalarını sürükle ya da seç</strong>
+            <span>Dış görünüş, motor bölümü, iç mekan, lastikler, gösterge paneli, hasarlı bölgeler · birden fazla dosya seçilebilir</span>
+            <input id="f-photos" type="file" accept="image/jpeg,image/png" multiple>
+          </label>
+          <div class="thumbs" id="thumbs"></div>
+          <span class="hint">Fotoğraflar yalnızca bu tarayıcıda önizlenir, hiçbir sunucuya gönderilmez.</span>
         </div>
 
-        <div class="accordion-item">
-            <div class="accordion-header">Ürünü nasıl saklamalıyım? <span>+</span></div>
-            <div class="accordion-content">
-                <p style="padding-bottom: 20px;">Serin, kuru ve doğrudan güneş ışığı almayan bir yerde, kapağı kapalı şekilde saklanması önerilir.</p>
-            </div>
+        <div class="cta-row">
+          <button class="cta" type="submit">ARACI ANALİZ ET</button>
+          <p class="cta-note">Girdiğin bilgiler tarayıcında işlenir. Rapor, bağlı bir piyasa verisi olmadan parametrik olarak hesaplanır ve bu açıkça belirtilir.</p>
         </div>
-    </section>
+      </form>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">REİWA</div>
-            <div class="footer-slogan">"Osmaniye'den sofralarınıza."</div>
-            <div class="footer-links">
-                <a href="#hero">Ana Sayfa</a>
-                <a href="#urunumuz">Ürünümüz</a>
-                <a href="#hakkimizda">Hakkımızda</a>
-                <a href="#iletisim">İletişim</a>
-                <a href="#" onclick="directWhatsapp()">WhatsApp</a>
-                <a href="#">Instagram</a>
-            </div>
-            <div class="copyright">
-                &copy; 2026 REİWA. Tüm hakları saklıdır.
-            </div>
-        </div>
-    </footer>
+  <section class="info" id="nasil">
+    <div class="wrap">
+      <span class="eyebrow">Nasıl çalışır?</span>
+      <h2>İlanı gezmeden önce dört adımda net bir tablo.</h2>
+      <div class="steps">
+        <div class="step"><b>1 / 4</b><h3>Bilgileri gir</h3><p>Marka, model, motor, kilometre ve fiyatı yaz. İlan açıklamasını ve fotoğrafları eklersen rapor zenginleşir.</p></div>
+        <div class="step"><b>2 / 4</b><h3>Sistem tarar</h3><p>Motor, şanzıman, bilinen kronik sorunlar, hasar ve kilometre tutarlılığı ayrı ayrı değerlendirilir.</p></div>
+        <div class="step"><b>3 / 4</b><h3>Skor oluşur</h3><p>Sekiz başlık ağırlıklarıyla birleşir. Her puanın arkasındaki neden ve güven seviyesi görünür.</p></div>
+        <div class="step"><b>4 / 4</b><h3>Pazarlık ve ekspertiz</h3><p>Hedef fiyat, maksimum alım fiyatı ve aracı görmeye giderken kullanacağın kontrol listesi hazır gelir.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript İşlemleri -->
-    <script>
-        // --- 1. Kullanıcının Değiştireceği Değişkenler ---
-        // Sadece bu numarayı kendi WhatsApp hattınızla değiştirin (Ülke kodu ile, başında + olmadan)
-        const REiWA_WHATSAPP_NUMBER = "905551234567"; 
+  <section class="info" id="riskler">
+    <div class="wrap">
+      <span class="eyebrow">Riskler</span>
+      <h2>Genel skor sekiz başlıktan oluşur.</h2>
+      <p class="lead">Skor tek bir kara kutu değildir. Her başlığın ağırlığı sabittir ve sonuç ekranında ayrı ayrı görürsün.</p>
+      <div class="weights" id="weightList"></div>
+    </div>
+  </section>
 
-        // Mobil Menü Aç/Kapa
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+  <section class="info" id="fiyat-bilgi">
+    <div class="wrap">
+      <span class="eyebrow">Fiyat analizi</span>
+      <h2>Fiyat tahmini neye bakar, neye bakmaz?</h2>
+      <p class="lead">Fiyat yalnızca Türkiye ikinci el piyasasına göre hesaplanır. Aynı model adı Türkiye, ABD ve Avrupa'da farklı motor, güç ve donanımla satıldığı için, analizden önce aracın Türkiye varyantını doğrularız. ABD veya Avrupa fiyatları Türkiye fiyatı yerine kullanılmaz.</p>
+      <p class="lead" style="margin-top:10px">Şu an canlı bir ilan veri kaynağına bağlı değiliz. Türkiye'deki benzer ilanları sen yapıştırırsan fiyat onlardan (medyan ve aralık olarak) hesaplanır. Yapıştırmazsan ve yeterli veri yoksa kesin fiyat üretilmez, düşük güvenli bir aralık gösterilir. ÖTV dilimi motor hacmine ve matraha bağlı olduğu için farklı motor hacimleri ayrı değerlendirilir; güncel oranlar bu prototipte tanımlı değildir.</p>
+      <div class="factors" id="factorList"></div>
+    </div>
+  </section>
 
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+  <section class="info" id="hakkimizda">
+    <div class="wrap">
+      <span class="eyebrow">Hakkımızda</span>
+      <h2>İkinci el alıcıları için bağımsız bir ön kontrol asistanı.</h2>
+      <p class="lead">AutoCheck AI, ekspertizin yerini almaz; ekspertize neye bakacağını bilerek gitmeni sağlar. Veri kaynakları bağlanana kadar neyin gerçek, neyin tahmin olduğunu aşağıdaki tabloda açıkça gösteriyoruz.</p>
+      <div class="tscroll">
+        <table class="status-table">
+          <thead><tr><th>Modül</th><th>Durum</th><th>Not</th></tr></thead>
+          <tbody>
+            <tr><td>Türkiye ikinci el ilan verisi</td><td><span class="badge mute"><i></i>Bağlı değil</span></td><td>Fiyat yalnızca senin yapıştırdığın Türkiye ilanlarından hesaplanır. İlan girilmezse kesin fiyat üretilmez.</td></tr>
+            <tr><td>Türkiye araç kataloğu</td><td><span class="badge warn"><i></i>Örnek</span></td><td>Az sayıda varyant için yerel örnek kayıt. Resmî kaynakla doğrulanmadı; tork, sıfır fiyat, ÖTV dilimi ve donanım paketi içerikleri yok.</td></tr>
+            <tr><td>ABD / Avrupa verileri</td><td><span class="badge mute"><i></i>Fiyatta kullanılmaz</span></td><td>Yalnızca teknik doğrulama ve kronik sorun araştırması için kullanılabilir.</td></tr>
+            <tr><td>Sahibinden ilan okuma</td><td><span class="badge mute"><i></i>Bağlı değil</span></td><td>İlan bilgileri elle girilir veya yapıştırılır.</td></tr>
+            <tr><td>Kronik sorun bilgi tabanı</td><td><span class="badge warn"><i></i>Örnek</span></td><td>5 demo model için hazırlanmış genel bilgi; diğer araçlarda yakıt ve şanzıman tipine göre genel kurallar kullanılır.</td></tr>
+            <tr><td>Fotoğraf görsel analizi</td><td><span class="badge mute"><i></i>Bağlı değil</span></td><td>Fotoğraflar önizlenir; otomatik görsel yorum üretilmez.</td></tr>
+            <tr><td>PDF ve paylaşım bağlantısı</td><td><span class="badge mute"><i></i>Sunucu gerekir</span></td><td>Rapor özeti panoya kopyalanabilir.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre class="code" aria-label="API entegrasyon noktası">// AutoCheck AI · API'ye hazır katman
+const AUTOCHECK_CONFIG = {
+  apiBaseUrl: null,          // örn. "https://api.ornek.com"
+  endpoints: { analyze: "/v1/analyze", market: "/v1/market-price", vision: "/v1/photo-analysis" }
+};
+// apiBaseUrl dolduğunda analyze(input) yerel tahmin yerine bu uçlara istek atar.</pre>
+      <pre class="code" aria-label="Türkiye araç veritabanı şeması">// Türkiye araç veritabanı kaydı (country = "TR" olmayan kayıt fiyat analizine girmez)
+{ brand, model, generation, facelift, model_year, engine, engine_code,
+  engine_displacement, horsepower, torque, fuel, transmission, drivetrain,
+  trim, country, market, msrp, used_market_price, known_issues }</pre>
+    </div>
+  </section>
+  <footer class="site"><div class="wrap">AutoCheck AI · Prototip sürüm · Tüm tutarlar TL, tarihler gün.ay.yıl biçimindedir.</div></footer>
+</div>
 
-        // SSS Accordion Mantığı
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('span');
-                
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    icon.textContent = '+';
-                } else {
-                    // Diğerlerini kapat (İsteğe bağlı)
-                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-                    document.querySelectorAll('.accordion-header span').forEach(i => i.textContent = '+');
-                    
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    icon.textContent = '-';
-                }
-            });
-        });
+<!-- VARYANT DOĞRULAMA -->
+<div id="variant" hidden></div>
 
-        // Form Gönderiminde WhatsApp'a Yönlendirme
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const quantity = document.getElementById('quantity').value;
-            const address = document.getElementById('address').value;
+<!-- SONUÇ EKRANI -->
+<div id="results" hidden>
+  <div class="wrap">
+    <div class="res-top">
+      <button class="btn" type="button" id="backBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Yeni analiz</button>
+      <span class="hint" id="reportDate"></span>
+    </div>
+    <div id="resBody"></div>
+  </div>
+</div>
 
-            const message = `Merhaba REİWA! Sipariş vermek istiyorum.%0A%0A*Ad Soyad:* ${name}%0A*Telefon:* ${phone}%0A*Ürün Adedi:* ${quantity}%0A*Adres:* ${address}`;
-            const whatsappURL = `https://wa.me/${REiWA_WHATSAPP_NUMBER}?text=${message}`;
-            
-            window.open(whatsappURL, '_blank');
-        });
+<!-- YÜKLEME -->
+<div class="loader" id="loader" hidden>
+  <div class="loader-card" role="status" aria-live="polite">
+    <h3 id="loadTitle">Analiz hazırlanıyor</h3>
+    <p class="s">Bu işlem birkaç saniye sürer.</p>
+    <ul class="l-steps" id="lSteps"></ul>
+    <div class="l-bar"><i id="lBar"></i></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
 
-        // Sadece Merhaba Mesajı Atacak Buton
-        function directWhatsapp() {
-            const message = `Merhaba REİWA! Zeytinyağınız hakkında bilgi ve sipariş için yazıyorum.`;
-            window.open(`https://wa.me/${REiWA_WHATSAPP_NUMBER}?text=${message}`, '_blank');
-        }
+<datalist id="dl-brand"><option>Alfa Romeo</option><option>Audi</option><option>BMW</option><option>Chevrolet</option><option>Citroën</option><option>Dacia</option><option>Fiat</option><option>Ford</option><option>Honda</option><option>Hyundai</option><option>Kia</option><option>Mazda</option><option>Mercedes-Benz</option><option>Nissan</option><option>Opel</option><option>Peugeot</option><option>Renault</option><option>Seat</option><option>Škoda</option><option>Suzuki</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option></datalist>
+<datalist id="dl-engine"><option>1.0 TSI</option><option>1.2 PureTech</option><option>1.3 MultiJet</option><option>1.4 TSI</option><option>1.5 dCi</option><option>1.5 TDI</option><option>1.6 MPI</option><option>1.6 TDI</option><option>1.6 Valvematic</option><option>2.0 TDI</option><option>2.0 d</option></datalist>
 
-        // Scroll Animasyonları (Fade-in efekti için)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
+<script>
+(function(){
+'use strict';
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+/* ---------- API'ye hazır yapılandırma ---------- */
+var CFG = {apiBaseUrl:null, endpoints:{analyze:'/v1/analyze', market:'/v1/market-price', vision:'/v1/photo-analysis'}};
+var YEAR = new Date().getFullYear();
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
-    </script>
-</body>
-</html>
+/* ---------- yardımcılar ---------- */
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function nf(n){return Math.round(n).toLocaleString('tr-TR')}
+function TL(n){return nf(n)+' TL'}
+function r5(n){return Math.round(n/5000)*5000}
+function r1(n){return Math.round(n/1000)*1000}
+function pct(n){return (Math.abs(n)*100).toLocaleString('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1})}
+function dateTR(d){return d.toLocaleDateString('tr-TR',{day:'2-digit',month:'long',year:'numeric'})}
+function toast(msg){var t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show')},3200)}
+function digits(v){return +(String(v||'').replace(/[^\d]/g,''))||0}
+
+var LV = {l:{t:'Düşük Risk',c:'good'},m:{t:'Orta Risk',c:'warn'},o:{t:'Orta-Yüksek Risk',c:'orange'},h:{t:'Yüksek Risk',c:'bad'},n:{t:'Bu araçta yok',c:'mute'}};
+function badge(lv){return '<span class="badge '+LV[lv].c+'"><i></i>'+LV[lv].t+'</span>'}
+var CONFC = {'Yüksek':'hi','Orta':'mid','Düşük':'lo'};
+function conf(t){return '<span class="conf '+CONFC[t]+'">Güven seviyesi: '+t+'</span>'}
+function bump(l){return {l:'m',m:'o',o:'h',h:'h',n:'n'}[l]}
+function bandColor(s){return s>=80?'good':s>=70?'warn':s>=60?'orange':'bad'}
+function bandLabel(s){return s>=90?'Çok İyi':s>=80?'İyi':s>=70?'Orta':s>=60?'Dikkat':'Yüksek Risk'}
+function riskLabel(s){return s>=90?'Çok Düşük Risk':s>=80?'Düşük Risk':s>=70?'Kabul Edilebilir':s>=60?'Orta Risk':s>=40?'Yüksek Risk':'Çok Yüksek Risk'}
+var ICON_WARN='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>';
+
+/* ---------- bilgi tabanı ---------- */
+var WEIGHTS = [['motor','Motor',20],['gear','Şanzıman',15],['chronic','Kronik problemler',15],['km','Kilometre',10],['damage','Hasar geçmişi',10],['maint','Bakım geçmişi',10],['price','Fiyat uygunluğu',15],['photo','Fotoğraf / görsel riskler',5]];
+var TIER = {premium:2.1,mid:1.25,eco:1};
+var ENG_ROWS = [['turbo','Turbo riski'],['oil','Yağ tüketimi riski'],['heat','Hararet riski'],['timing','Triger / zincir sistemi'],['inj','Enjektör riski'],['cool','Soğutma sistemi'],['leak','Yağ kaçakları'],['egr','EGR'],['dpf','DPF'],['adblue','AdBlue'],['ign','Ateşleme sistemi']];
+var GEAR_ROWS = ['Kavrama','Mekatronik / kontrol ünitesi','Yağ bakımı','Vites geçişleri','Sarsıntı riski','Isınma riski','Bilinen kronik problemler'];
+var DEF_TXT = {
+  l:'Bu başlıkta belirgin bir risk beklenmiyor; yine de servis kaydından doğrula.',
+  m:'Orta düzeyde risk. Bakım geçmişine ve test sürüşüne özellikle bak.',
+  o:'Bu tip araçlarda sık sorun çıkarabilir. Ekspertizde ayrıca kontrol ettir.',
+  h:'Yüksek risk. Satın almadan önce uzman kontrolü şart.',
+  n:'Bu araçta bu sistem bulunmuyor veya geçerli değil.'
+};
+var GEAR = {
+  manual:{n:'Manuel şanzıman',rel:85,lv:'mnlllnl',cost:[8000,15000,35000,60000],note:'Debriyaj ve volan aşınması kullanım tarzına göre değişir.'},
+  auto:{n:'Tam otomatik şanzıman (tork konvertörlü)',rel:78,lv:'lmmllll',cost:[25000,45000,90000,160000],note:'Düzenli yağ değişimi yapılan araçlarda genelde uzun ömürlüdür.'},
+  zf8:{n:'8 ileri tam otomatik (ZF tipi)',rel:88,lv:'lmmllll',cost:[25000,50000,100000,180000],note:'Dayanıklı yapıdır; yağ değişimi ihmal edilirse sorun çıkabilir.'},
+  dsg:{n:'Çift kavramalı şanzıman (DSG tipi)',rel:68,lv:'omommmo',cost:[30000,50000,95000,160000],note:'Kuru kavramalı sürümler düşük hızlı şehir trafiğinde daha çok zorlanır.'},
+  dsgdry:{n:'7 ileri DSG (kuru kavrama)',rel:62,lv:'ooommmo',cost:[30000,45000,80000,130000],note:'Kavrama ve mekatronik ünitesi bu şanzımanın bilinen zayıf noktalarıdır.'},
+  edc:{n:'6 ileri EDC (çift kavrama)',rel:64,lv:'ooommmo',cost:[25000,38000,65000,100000],note:'Düşük hızda kalkış titremesi sık görülen şikayettir.'},
+  eat6:{n:'6 ileri otomatik (Aisin tipi EAT6)',rel:80,lv:'lmmllml',cost:[22000,40000,85000,140000],note:'Yağ bakımı yapıldığında genelde sorunsuz çalışır.'},
+  cvt:{n:'CVT (sürekli değişken)',rel:70,lv:'nmmlmmm',cost:[25000,45000,90000,150000],note:'Yağ değişimi ihmal edilirse ömrü ciddi şekilde kısalır.'},
+  cvtT:{n:'CVT (Multidrive S tipi)',rel:84,lv:'nlmllll',cost:[20000,38000,75000,130000],note:'Bu tip CVT, bakım yapıldığında dayanıklı kabul edilir.'},
+  semi:{n:'Yarı otomatik şanzıman',rel:66,lv:'ommomml',cost:[20000,35000,65000,110000],note:'Robotik şanzımanlarda kalkış ve düşük hız davranışı test edilmelidir.'},
+  ev:{n:'Tek vitesli redüktör (elektrikli)',rel:90,lv:'nllllll',cost:[10000,20000,45000,90000],note:'Mekanik yapı basittir; asıl dikkat edilecek kalem bataryadır.'}
+};
+var LIB = {
+  cold:['Soğuk motor çalıştırma','Aracı motor tamamen soğukken çalıştır. İlk saniyelerde metalik tıkırtı, zincir sesi veya uzun marş süresi olmamalı. Rölantide dalgalanma, titreme ve egzozdan yoğun mavi ya da beyaz duman olup olmadığına bak.'],
+  oil:['Motor yağ seviyesi ve basıncı','Yağ çubuğunu motor soğukken çek; seviye ve renk kontrol edilir. Yağ süt gibiyse veya içinde partikül varsa not al. Göstergede yağ basıncı uyarısı yanmamalı.'],
+  oilcons:['Yağ tüketimi','Satıcıya son yağ değişiminden bu yana ne kadar yağ eklendiğini sor. Çubuktaki seviye düşüşü ve egzozdan mavi duman yüksek tüketimi gösterir.'],
+  wet:['Islak triger kayışı kontrolü','Yağ doldurma kapağının altına ve çubuğa bak; siyah kauçuk kırıntısı kayış aşınmasını gösterebilir. Servis kaydında kayış değişiminin km ve tarihini iste. Kayıt yoksa değişimi pazarlıkta bütçeye ekle.'],
+  belt:['Triger kayışı ve su pompası kaydı','Servis faturalarında triger seti ve su pompası değişim tarihi ile km bilgisi aranır. Üretici aralığı geçtiyse değişim maliyetini fiyata yansıt.'],
+  chain:['Zincir sesi','Soğuk çalıştırmada ve gaz verirken ön taraftan gelen zincir tıkırtısı ya da uğultu uyarıcıdır. Isındıkça azalsa bile not al.'],
+  cool:['Soğutma sistemi','Antifriz seviyesi ve rengine bak; genleşme kabında yağ veya kahverengi çamur olmamalı. Motor ısınınca sıcaklık göstergesi ortada sabit kalmalı, fan düzenli devreye girmeli.'],
+  leak:['Yağ kaçakları','Aracı kaldırtıp motor altı ve conta bölgelerine el feneriyle bak. Yağ filtre gövdesi, külbütör kapağı ve şanzıman bağlantısında ıslak veya yağlı alan kaçak işaretidir.'],
+  turbo:['Turbo','Gaz verirken ıslık, metal sesi veya mavi duman olmamalı. Yüklü ivmelenmede güç kaybı ya da ani kesilme olmamalı. OBD taramasında turbo basınç hatası aranır.'],
+  egr:['EGR / DPF','Kısa mesafe kullanılan dizel araçlarda tıkanma görülür. OBD taramasında DPF ve EGR hataları ile rejenerasyon sıklığı kontrol edilir. Göstergede DPF uyarısı yanmamalı.'],
+  dsg:['DSG / çift kavrama testi','Düz yolda 10–30 km/s arasında hafif gaz–fren yap; 1-2-3 geçişlerinde titreme, vuruntu veya gecikme olmamalı. Dururken D\'den R\'ye geçerken sarsıntı ve gecikme not edilir. Servis kaydında şanzıman yağı ve kavrama işlemi sorulur.'],
+  edc:['EDC testi','Rampa ve dur-kalk trafikte kalkışta titreme, vites kaçırma ve "şanzıman arızası" uyarısı olmamalı. Servis kaydında şanzıman yağı değişimi sorulur.'],
+  cvt:['CVT testi','Hızlanırken uğultu, titreme ve devirde ani sıçrama olmamalı. CVT yağı değişim kaydı sorulur.'],
+  at:['Otomatik şanzıman testi','D, R, N ve P konumlarında geçiş yumuşak olmalı; gecikme veya sert vuruş uyarıcıdır. Şanzıman yağı değişim kaydı sorulur.'],
+  man:['Debriyaj ve manuel şanzıman','Yokuşta el frenini çekip 2. viteste debriyajı bırak; motor stop etmeli. Vites girişlerinde gıcırtı, zor geçiş ve debriyajın çok geç tutması uyarıcıdır.'],
+  shock:['Amortisör ve süspansiyon','Ön ve arka köşelere bastır; araç bir defadan fazla zıplamamalı. Bozuk zeminde tıkırtı ve direksiyonda boşluk olmamalı.'],
+  brake:['Fren sistemi','Diskte derin çizik veya kenar çıtası, pedalda titreme ve fren sırasında çekme olmamalı. Balata kalınlığını sor.'],
+  ac:['Klima','Klimayı en soğuğa alıp 5 dakika bekle; hava soğuk, kokusuz ve düzenli akmalı. Kompresör devreye girerken ses veya titreme olmamalı.'],
+  cons:['Sarf malzemeleri','Silecek, filtre, buji, balata ve yağ değişim tarihleri sorulur. Eksik olanlar çoğunlukla küçük bütçe kalemidir.'],
+  tire:['Lastikler','Diş derinliği (en az 3 mm), yan duvar çatlakları ve üretim tarihi (DOT kodunun son 4 hanesi) bakılır. Dört lastiğin aşınması eşit olmalı.'],
+  batt:['Akü','Soğuk çalıştırmada marş gücüne dikkat et. Akü etiketinden üretim tarihi okunur; 4–5 yıldan eskiyse değişim bütçeye eklenir.'],
+  hv:['Yüksek voltaj batarya','Batarya sağlık raporu (SoH) iste. Bilgi ekranından veya yetkili servisten alınabilir; kalan garanti süresini de sor.'],
+  gas:['LPG sistemi','Tüp muayene tarihi, enjektör ve filtre bakım kaydı sorulur; benzin–LPG geçişi sarsıntısız olmalı.']
+};
+var EXPERT_ITEMS = ['Soğuk motor çalıştırıldı','Motor sesi kontrol edildi','Yağ kaçakları kontrol edildi','Su / antifriz kontrol edildi','Turbo kontrol edildi','Şanzıman test edildi','Debriyaj / kavrama kontrol edildi','Frenler kontrol edildi','Süspansiyon kontrol edildi','Lastikler kontrol edildi','Airbag kontrol edildi','Şasi kontrol edildi','Podye kontrol edildi','Direkler kontrol edildi','Boya ölçümü yapıldı','OBD taraması yapıldı','Servis geçmişi kontrol edildi'];
+
+/* demo modeller: bilgi tabanı örnekleridir, gerçek ilan değildir */
+var PROFILES = [
+ {id:'bmw3',re:function(b,m){return /bmw/.test(b)&&/3/.test(m)},label:'BMW 3 Serisi',tier:'premium',newPrice:2500000,gear:'zf8',
+  eng:{name:'2.0 dizel (B47 tipi)',rel:80,life:'300.000 – 400.000 km',turbo:true,
+   ov:{timing:['l','Zincirli yapı. Soğukta zincir sesi varsa değişim maliyeti yüksektir.'],cool:['o','Elektrikli su pompası ve termostat bu ailede bilinen arıza noktasıdır.'],leak:['m','Yağ filtre gövdesi ve kapak contalarında sızıntı görülebilir.'],dpf:['m','Kısa mesafe kullanımda DPF ve EGR tıkanması yaşanabilir.']}},
+  chronic:[
+   {n:'Su pompası / termostat arızası',lv:'o',sym:'Motor ısınma uyarısı, sıcaklık dalgalanması, soğutma suyu eksilmesi',when:'100.000 – 150.000 km',fix:'Pompa ve termostat setinin değişimi',cost:[25000,35000,60000,85000],stop:'Kontrol şartıyla'},
+   {n:'Yağ filtre gövdesi / kapak contası sızıntısı',lv:'m',sym:'Motor altında yağ damlaması, yanık yağ kokusu',when:'80.000 – 140.000 km',fix:'Conta ve gövde değişimi',cost:[8000,12000,25000,40000],stop:'Hayır'},
+   {n:'EGR / DPF tıkanması',lv:'m',sym:'Güç kaybı, DPF uyarısı, sık rejenerasyon, yüksek yakıt tüketimi',when:'Kısa mesafe kullanımda 80.000 km sonrası',fix:'Temizleme veya parça değişimi',cost:[15000,25000,55000,100000],stop:'Kontrol şartıyla'},
+   {n:'Ön süspansiyon burç ve rotilleri',lv:'l',sym:'Düzensiz yolda tıkırtı, direksiyonda boşluk',when:'90.000 km sonrası',fix:'Burç ve rotil değişimi',cost:[6000,10000,22000,35000],stop:'Hayır'}],
+  crit:['cold','cool','leak','at'],
+  photo:[['Arka tampon–çamurluk aralığında farklılık','Arka tampon ile çamurluk arasındaki boşluk soldan sağa farklı görünüyor. Bu durum onarım veya tampon değişimi ihtimalini artırır, fotoğraf tek başına kesin kanıt değildir.','Orta','m'],['Ön lastiklerde dış kenar aşınması','Ön lastiklerin dış kenarı iç kenardan daha çok aşınmış görünüyor. Rot–balans veya süspansiyon durumu kontrol edilmelidir.','Düşük','m']],demoPhotoScore:76,
+  demo:{brand:'BMW',model:'3 Serisi (320d)',year:2017,engine:'2.0 d 190 PS',fuel:'Dizel',gear:'Otomatik',km:128000,factor:1.037,power:'190',damage:'var',painted:'Arka tampon',changed:'',tramer:18000,service:'ozel',lastMonthsAgo:7,body:'Sedan',drive:'Arkadan itiş',desc:'Özel serviste düzenli bakımlı, boyalı parça: arka tampon. Takas olur.'}},
+ {id:'golf',re:function(b,m){return /golf/.test(m)||(/volkswagen|vw/.test(b)&&/golf/.test(m))},label:'Volkswagen Golf',tier:'mid',newPrice:2000000,gear:'dsgdry',
+  eng:{name:'1.6 TDI (dizel)',rel:74,life:'250.000 – 350.000 km',turbo:true,
+   ov:{egr:['m','EGR valfi ve soğutucusunda is birikmesi sık görülür.'],dpf:['m','Şehir içi kullanımda DPF dolabilir; rejenerasyon geçmişi sorulmalı.'],cool:['m','Plastik soğutma parçalarında zamanla sızıntı görülebilir.'],adblue:['n','Bu motorda AdBlue sistemi genellikle bulunmaz (sürüme göre doğrula).']}},
+  gearOv:{3:'Özellikle düşük hızda 1-2 geçişlerinde titreme kontrol edilmeli.'},
+  chronic:[
+   {n:'DSG kavrama ve mekatronik arızası',lv:'h',sym:'1-2 geçişinde titreme, vites kaçırma, "şanzıman arızası" uyarısı',when:'80.000 – 150.000 km',fix:'Kavrama seti ve/veya mekatronik ünitesi onarımı',cost:[30000,45000,75000,120000],stop:'Test sürüşünde titreme varsa evet'},
+   {n:'EGR soğutucu / valf tıkanması',lv:'m',sym:'Güç kaybı, rölanti dalgalanması, motor arıza ışığı',when:'100.000 km sonrası',fix:'Temizleme veya değişim',cost:[10000,16000,30000,50000],stop:'Hayır'},
+   {n:'DPF dolması',lv:'m',sym:'Sık rejenerasyon, güç kaybı, DPF uyarısı',when:'Kısa mesafe kullanımda 90.000 km sonrası',fix:'Zorlamalı rejenerasyon, temizleme veya değişim',cost:[12000,22000,45000,80000],stop:'Kontrol şartıyla'},
+   {n:'Ön süspansiyon burçları',lv:'l',sym:'Tıkırtı, direksiyonda boşluk',when:'90.000 km sonrası',fix:'Burç değişimi',cost:[5000,9000,18000,30000],stop:'Hayır'}],
+  crit:['cold','dsg','egr','cool'],
+  photo:[['Direksiyon ve vites topuzunda aşınma','Direksiyon kaplamasındaki parlama ve aşınma, belirtilen kilometreden daha yoğun kullanım izlenimi verebilir. Kilometre tutarlılığı servis kayıtlarıyla doğrulanmalıdır.','Orta','m'],['Sağ ön çamurluk–kapı renk tonu farkı','Sağ ön çamurluk ile kapı arasında renk tonu farkı görülüyor. Bu durum boya veya değişim ihtimalini artırır ancak fotoğraf tek başına kesin kanıt değildir.','Orta','o']],demoPhotoScore:70,
+  demo:{brand:'Volkswagen',model:'Golf',year:2016,engine:'1.6 TDI 115 PS',fuel:'Dizel',gear:'Yarı Otomatik',km:142000,factor:.97,power:'115',damage:'yok',painted:'',changed:'',tramer:0,service:'kismi',lastMonthsAgo:15,body:'Hatchback',drive:'Önden çekiş',desc:'Hatasız, boyasız. Bakımları yapıldı, kayıtlar mevcut. DSG şanzıman.'}},
+ {id:'corolla',re:function(b,m){return /corolla/.test(m)},label:'Toyota Corolla',tier:'mid',newPrice:1600000,gear:'cvtT',
+  eng:{name:'1.6 Valvematic (benzin)',rel:90,life:'350.000 km ve üzeri',turbo:false,
+   ov:{timing:['l','Zincirli yapı; düzenli yağ değişimi yapılan araçlarda sorun beklenmez.'],oil:['l','Yağ tüketimi genellikle düşüktür.'],ign:['l','Buji ve bobinler rutin bakım kalemidir.']}},
+  chronic:[
+   {n:'CVT yağ bakımı ihmali',lv:'m',sym:'Hızlanırken uğultu, titreme, yavaş tepki',when:'Yağ değişimi yapılmamış araçlarda 100.000 km sonrası',fix:'Yağ değişimi; ileri aşamada onarım',cost:[5000,8000,18000,70000],stop:'Kayıt yoksa şartlı'},
+   {n:'Klima kompresörü / kondenser',lv:'l',sym:'Klima yeterince soğutmuyor, kompresör sesi',when:'120.000 km sonrası',fix:'Gaz dolumu veya parça değişimi',cost:[3000,10000,28000,40000],stop:'Hayır'},
+   {n:'Gaz kelebeği / emme kirliliği',lv:'l',sym:'Rölanti dalgalanması, hafif sarsıntı',when:'90.000 km sonrası',fix:'Temizlik ve adaptasyon',cost:[2500,4500,9000,15000],stop:'Hayır'},
+   {n:'Ön amortisör ve rotiller',lv:'l',sym:'Tıkırtı, direksiyonda gevşeklik',when:'100.000 km sonrası',fix:'Değişim',cost:[6000,11000,22000,32000],stop:'Hayır'}],
+  crit:['cold','cvt','cool','leak'],
+  photo:[['Koltuk ve direksiyon aşınması','İç mekân aşınması belirtilen kilometreyle uyumlu görünüyor. Bu bir gözlemdir; kesin kanıt değildir.','Orta','l'],['Sol ön çamurluk yüzeyi','Çamurluk yüzeyinde hafif portakal kabuğu görünümü var. Lokal boya ihtimalini artırır, boya ölçümü ile doğrulanmalıdır.','Orta','m']],demoPhotoScore:80,
+  demo:{brand:'Toyota',model:'Corolla',year:2017,engine:'1.6 Valvematic 132 PS',fuel:'Benzin',gear:'CVT',km:96000,factor:1.0,power:'132',damage:'var',painted:'Sol ön çamurluk',changed:'',tramer:8500,service:'yetkili',lastMonthsAgo:4,body:'Sedan',drive:'Önden çekiş',desc:'Yetkili servis bakımlı, tüm faturalar mevcut. Boyalı: sol ön çamurluk.'}},
+ {id:'clio',re:function(b,m){return /clio/.test(m)},label:'Renault Clio',tier:'eco',newPrice:1150000,gear:'edc',
+  eng:{name:'1.5 dCi (dizel)',rel:74,life:'250.000 – 300.000 km',turbo:true,
+   ov:{timing:['m','Triger kayışı ve su pompası bakım aralığı atlanmışsa motor hasarı riski vardır.'],inj:['m','Enjektör sızdırması ve yüksek basınç sistemi bu ailede takip edilmelidir.'],egr:['m','EGR valfi kirlenmesi sık görülür.']}},
+  chronic:[
+   {n:'EDC kavrama ve mekatronik',lv:'o',sym:'Kalkışta titreme, vites kaçırma, şanzıman uyarısı',when:'70.000 – 130.000 km',fix:'Kavrama seti ve/veya mekatronik onarımı',cost:[25000,35000,55000,85000],stop:'Test sürüşünde titreme varsa evet'},
+   {n:'Enjektör / yüksek basınç sistemi',lv:'m',sym:'Zor çalışma, sarsıntı, siyah duman',when:'120.000 km sonrası',fix:'Enjektör temizliği veya değişimi',cost:[12000,20000,40000,70000],stop:'Kontrol şartıyla'},
+   {n:'Triger kayışı ve su pompası gecikmiş bakım',lv:'m',sym:'Belirti vermeden kopabilir; kopması motora zarar verir',when:'Üretici aralığı (genelde 120.000 km veya 5-6 yıl)',fix:'Triger seti ve su pompası değişimi',cost:[8000,12000,20000,55000],stop:'Kayıt yoksa şartlı'},
+   {n:'EGR ve turbo',lv:'m',sym:'Güç kaybı, ıslık sesi, arıza ışığı',when:'110.000 km sonrası',fix:'Temizlik veya parça değişimi',cost:[12000,20000,38000,60000],stop:'Hayır'}],
+  crit:['cold','edc','belt','egr'],
+  photo:[['Ön tampon ve far çevresi','Sağ far çevresinde panel aralığı ve doku farkı görülüyor. Bu durum far veya tampon değişimi ihtimalini artırır. Beyan ile karşılaştırılmalıdır.','Orta','m'],['Gösterge paneli','Gösterge paneli fotoğrafı yüklenirse kilometre ve uyarı ışıkları ayrıca kontrol edilir.','Düşük','l']],demoPhotoScore:68,
+  demo:{brand:'Renault',model:'Clio',year:2017,engine:'1.5 dCi 90 PS',fuel:'Dizel',gear:'Yarı Otomatik',km:118000,factor:1.08,power:'90',damage:'var',painted:'',changed:'Ön tampon, sağ far',tramer:32000,service:'ozel',lastMonthsAgo:11,body:'Hatchback',drive:'Önden çekiş',desc:'Değişen: ön tampon, sağ far. Tramer kaydı var. Otomatik vites.'}},
+ {id:'p2008',re:function(b,m){return /2008/.test(m)||(/peugeot/.test(b)&&/2008/.test(m))},label:'Peugeot 2008',tier:'eco',newPrice:1350000,gear:'eat6',
+  eng:{name:'1.2 PureTech (benzin, turbo)',rel:64,life:'200.000 – 250.000 km',turbo:true,
+   ov:{timing:['h','Yağ içinde çalışan (ıslak) triger kayışı parçalanabilir. Bakım geçmişi özellikle kontrol edilmelidir. Sürüme göre doğrula.'],oil:['o','Bu motor ailesinde yağ tüketimi yüksek olabilir.'],turbo:['m','Turbo ve wastegate arızası görülebilir.'],ign:['m','Buji ve bobin değişimi daha sık gerekebilir.']}},
+  chronic:[
+   {n:'Triger / ıslak kayış sistemi',lv:'h',sym:'Yağ içinde kayış parçacığı, yağ basıncı uyarısı, motor sönmesi',when:'60.000 km sonrası, bakıma göre erken de olabilir',fix:'Sistem kontrolü ve gerekiyorsa kayış/yağ pompası ağzı değişimi',cost:[25000,40000,80000,150000],stop:'Kayıt yoksa evet'},
+   {n:'Yüksek yağ tüketimi',lv:'o',sym:'Sık yağ eksilmesi, egzozdan mavi duman',when:'50.000 km sonrası',fix:'Yağ takibi; ileri aşamada motor revizyonu',cost:[3000,8000,30000,90000],stop:'Kontrol şartıyla'},
+   {n:'Turbo',lv:'m',sym:'Performans kaybı, ıslık sesi',when:'100.000 km sonrası',fix:'Turbo onarımı veya değişimi',cost:[20000,30000,50000,80000],stop:'Hayır'},
+   {n:'Ön süspansiyon burçları',lv:'l',sym:'Tıkırtı, direksiyonda boşluk',when:'80.000 km sonrası',fix:'Burç değişimi',cost:[5000,8500,17000,28000],stop:'Hayır'}],
+  crit:['cold','wet','oilcons','cool'],
+  photo:[['Motor bölümünde yağ izi','Motor kapağı çevresinde yağ buharlaşma izi olabilecek koyu bir alan görülüyor. Kaçak olup olmadığı fiziksel kontrolle doğrulanmalıdır.','Düşük','m'],['Lastik dişleri','Ön lastiklerde diş derinliği azalmış görünüyor; yakın zamanda değişim bütçesi düşünülebilir.','Orta','m']],demoPhotoScore:72,
+  demo:{brand:'Peugeot',model:'2008',year:2017,engine:'1.2 PureTech 110 PS',fuel:'Benzin',gear:'Otomatik',km:87000,factor:1.06,power:'110',damage:'yok',painted:'',changed:'',tramer:0,service:'',lastMonthsAgo:0,body:'SUV / Crossover',drive:'Önden çekiş',desc:'Hasarsız, düşük kilometre, otomatik vites. Sahibinden.'}}
+];
+
+/* ---------- genel profil ---------- */
+function tierOf(brand){
+  var b=brand.toLowerCase();
+  if(/bmw|mercedes|audi|volvo|lexus|porsche|land rover|jaguar|alfa/.test(b))return 'premium';
+  if(/dacia|fiat|renault|hyundai|kia|opel|citro|peugeot|chevrolet|suzuki|nissan|tofa|ford/.test(b))return 'eco';
+  return 'mid';
+}
+var NEWP={premium:3000000,mid:1900000,eco:1300000};
+function matchProfile(i){
+  if(!i.v||!i.v.profile)return null;
+  for(var k=0;k<PROFILES.length;k++){if(PROFILES[k].id===i.v.profile)return PROFILES[k]}
+  return null;
+}
+function gearKeyFor(i,p){
+  if(i.fuel==='Elektrik')return 'ev';
+  if(p&&p.gear&&p.eng&&sameFamily(i,p))return p.gear;
+  var b=i.brand.toLowerCase();
+  if(i.gear==='Manuel')return 'manual';
+  if(i.gear==='CVT')return /toyota|lexus|honda/.test(b)?'cvtT':'cvt';
+  if(i.gear==='Yarı Otomatik')return /volkswagen|vw|audi|skoda|škoda|seat|cupra|porsche/.test(b)?'dsg':/renault|dacia/.test(b)?'edc':'semi';
+  return 'auto';
+}
+function sameFamily(i,p){
+  // profil şanzımanı yalnızca kullanıcı seçimiyle çelişmiyorsa kullanılır
+  if(p.gear==='zf8'||p.gear==='eat6'||p.gear==='auto')return i.gear==='Otomatik'||i.gear==='Yarı Otomatik';
+  if(p.gear==='dsgdry'||p.gear==='dsg'||p.gear==='edc'||p.gear==='semi')return i.gear==='Yarı Otomatik';
+  if(p.gear==='cvtT'||p.gear==='cvt')return i.gear==='CVT';
+  return true;
+}
+
+/* ---------- ilan açıklaması tarama ---------- */
+var KW=[['şasi|sasi','Şasi',true],['podye','Podye',true],['direk','Direk',true],['airbag|hava yastığ','Airbag',true],['pert|sigortadan','Pert / sigorta kaydı',true],['tramer','Tramer',false],['değişen|degisen','Değişen',false],['boyalı|boyali|lokal boya','Boya',false],['hatasız|hasarsız','Hatasız / hasarsız ifadesi',false],['ilk sahib|tek sahib','Sahiplik ifadesi',false],['yetkili servis|bakımlı|bakimli','Bakım ifadesi',false],['lpg','LPG',false],['takas','Takas',false],['acil|fırsat','Acil satış ifadesi',false]];
+function parseDesc(text){
+  var out=[],t=(text||'').toLowerCase();
+  if(!t.trim())return out;
+  KW.forEach(function(k){
+    var re=new RegExp(k[0]),m=re.exec(t);
+    if(!m)return;
+    var win=t.slice(Math.max(0,m.index-30),m.index+m[0].length+40);
+    var neg=/\b(yok|değil|degil|temiz|olmadı|bulunmuyor|yoktur|işlem yok)\b/.test(win);
+    out.push({label:k[1],critical:k[2],negated:neg});
+  });
+  return out;
+}
+function splitList(s){return (s||'').split(/[,\n;]/).map(function(x){return x.trim()}).filter(Boolean)}
+
+/* ---------- hesaplama ---------- */
+/* ---------- Türkiye araç kataloğu (API'ye hazır şema) ----------
+   Yerel ÖRNEK kayıtlardır; resmî kaynakla doğrulanmadı. country alanı "TR" olmayan kayıt
+   fiyat analizine dahil edilmez. ref: yalnızca düşük güvenli yaklaşık tahmin için örnek referans. */
+var TR_DB=[
+ {brand:'BMW',brandRe:/bmw/,model:'3 Serisi',family:/3\s*serisi|3\s*series|\b3\d\d\s?(i|d|e|xd|xi)\b/,variant:'320i',generation:'G20',facelift:'LCI',model_year:[2023,2026],engine:'1.6 L turbo benzin',engine_label:'1.6 benzin 170 HP',engine_code:'B48 ailesi (Türkiye motor kodu doğrulanmadı)',engine_displacement:1600,horsepower:170,torque:null,fuel:'Benzin',transmission:['Otomatik'],drivetrain:'Arkadan itiş',trim:null,country:'TR',market:'Türkiye',msrp:null,used_market_price:null,known_issues:[],ref:{year:2023,price:4000000},profile:null},
+ {brand:'BMW',brandRe:/bmw/,model:'3 Serisi',family:/3\s*serisi|3\s*series|\b3\d\d\s?(i|d|e|xd|xi)\b/,variant:'320d',generation:'F30',facelift:'LCI',model_year:[2015,2018],engine:'2.0 L turbo dizel',engine_label:'2.0 d 190 PS',engine_code:'B47 ailesi (doğrulanmadı)',engine_displacement:2000,horsepower:190,torque:null,fuel:'Dizel',transmission:['Otomatik','Manuel'],drivetrain:'Arkadan itiş',trim:null,country:'TR',market:'Türkiye',msrp:null,used_market_price:null,known_issues:[],ref:{year:2017,price:2200000},profile:'bmw3'},
+ {brand:'Volkswagen',brandRe:/volkswagen|vw/,model:'Golf',family:/golf/,variant:null,generation:'Mk7 / Mk7.5',facelift:null,model_year:[2013,2020],engine:'1.6 L dizel',engine_label:'1.6 TDI 115 PS',engine_code:'EA288 ailesi (doğrulanmadı)',engine_displacement:1600,horsepower:115,torque:null,fuel:'Dizel',transmission:['Manuel','Yarı Otomatik'],drivetrain:'Önden çekiş',trim:null,country:'TR',market:'Türkiye',msrp:null,used_market_price:null,known_issues:[],ref:{year:2016,price:1350000},profile:'golf'},
+ {brand:'Toyota',brandRe:/toyota/,model:'Corolla',family:/corolla/,variant:null,generation:'E170 / E210',facelift:null,model_year:[2013,2023],engine:'1.6 L Valvematic benzin',engine_label:'1.6 Valvematic 132 PS',engine_code:'1ZR-FAE (doğrulanmadı)',engine_displacement:1600,horsepower:132,torque:null,fuel:'Benzin',transmission:['Manuel','CVT'],drivetrain:'Önden çekiş',trim:null,country:'TR',market:'Türkiye',msrp:null,used_market_price:null,known_issues:[],ref:{year:2017,price:1250000},profile:'corolla'},
+ {brand:'Renault',brandRe:/renault/,model:'Clio',family:/clio/,variant:null,generation:'IV',facelift:null,model_year:[2013,2019],engine:'1.5 L dCi dizel',engine_label:'1.5 dCi 90 PS',engine_code:'K9K ailesi (doğrulanmadı)',engine_displacement:1500,horsepower:90,torque:null,fuel:'Dizel',transmission:['Manuel','Yarı Otomatik'],drivetrain:'Önden çekiş',trim:null,country:'TR',market:'Türkiye',msrp:null,used_market_price:null,known_issues:[],ref:{year:2017,price:950000},profile:'clio'},
+ {brand:'Peugeot',brandRe:/peugeot/,model:'2008',family:/2008/,variant:null,generation:'I',facelift:null,model_year:[2013,2019],engine:'1.2 L PureTech turbo benzin',engine_label:'1.2 PureTech 110 PS',engine_code:'EB2 ailesi (doğrulanmadı)',engine_displacement:1200,horsepower:110,torque:null,fuel:'Benzin',transmission:['Manuel','Otomatik'],drivetrain:'Önden çekiş',trim:null,country:'TR',market:'Türkiye',msrp:null,used_market_price:null,known_issues:[],ref:{year:2017,price:1100000},profile:'p2008'}
+];
+var DEMOS=PROFILES.map(function(p){return {label:p.label,demo:p.demo,profile:p}}).concat([
+ {label:'BMW 320i M Sport (2023)',demo:{brand:'BMW',model:'320i',year:2023,engine:'1.6 benzin 170 HP',cc:'1.6',trim:'M Sport',fuel:'Benzin',gear:'Otomatik',km:80000,price:4250000,power:'170',damage:'var',painted:'Ön tampon',changed:'',tramer:15000,service:'yetkili',lastMonthsAgo:5,body:'Sedan',drive:'Arkadan itiş',desc:'Yetkili servis bakımlı, boyalı parça: ön tampon. M Sport paket.'}},
+ {label:'Uyuşmazlık örneği: 320i 2.0 L',demo:{brand:'BMW',model:'320i',year:2023,engine:'2.0 benzin 180 HP',cc:'2.0',trim:'M Sport',fuel:'Benzin',gear:'Otomatik',km:45000,price:2100000,power:'180',damage:'yok',painted:'',changed:'',tramer:0,service:'',lastMonthsAgo:0,body:'Sedan',drive:'Arkadan itiş',desc:'Yurt dışından getirilmiş. 2.0 litre.'}}
+]);
+
+function normFuel(f){return /^lpg/i.test(f||'')?'Benzin':f}
+function parseCC(s){
+  s=String(s||'').toLowerCase();
+  var m=s.match(/(\d{3,4})\s*cc/)||s.match(/^\s*(\d{4})\s*$/);
+  if(m)return +m[1];
+  m=s.match(/(\d)[.,](\d)(?!\d)/);
+  if(m)return (+m[1])*1000+(+m[2])*100;
+  return 0;
+}
+function parseHP(s){var m=String(s||'').match(/(\d{2,3})\s*(ps|hp|bg|beygir)/i);return m?+m[1]:0}
+function litre(cc){return (cc/1000).toFixed(1).replace('.',',')+' L'}
+function userVariantToken(i){var m=(i.model+' '+i.engine).toLowerCase().match(/\b(\d{3})\s?(i|d|e|xd|xi)\b/);return m?m[1]+m[2].replace(/^x/,''):''}
+
+/* Türkiye varyant eşleştirme: marka + model + yıl + motor hacmi + güç + yakıt + şanzıman */
+function matchVariant(i){
+  var res={status:'unknown',entry:null,cands:[],checks:[],msgs:[],near:null};
+  if(i.country!=='TR'){res.status='foreign';return res}
+  var hay=(i.model+' '+i.engine+' '+(i.trim||'')).toLowerCase(),brand=i.brand.toLowerCase();
+  var fam=TR_DB.filter(function(e){return e.country==='TR'&&e.brandRe.test(brand)&&e.family.test(hay)});
+  if(!fam.length){res.msgs.push('Bu marka ve model Türkiye kataloğunda bulunamadı.');return res}
+  var uv=userVariantToken(i),pool=fam;
+  if(uv){
+    pool=fam.filter(function(e){return e.variant===uv});
+    if(!pool.length){res.msgs.push('"'+uv+'" versiyonu Türkiye kataloğunda kayıtlı değil. Türkiye\'de satılıyor olabilir ama doğrulanamadı.');return res}
+  }
+  function chk(e){
+    var yr=i.year>=e.model_year[0]&&i.year<=e.model_year[1];
+    return [
+      {k:'Model yılı',user:String(i.year),tr:e.model_year[0]+' – '+e.model_year[1],ok:yr},
+      {k:'Motor hacmi',user:i.cc?litre(i.cc)+' ('+i.cc+' cc)':'Girilmedi',tr:litre(e.engine_displacement),ok:i.cc?Math.abs(i.cc-e.engine_displacement)<=60:null},
+      {k:'Motor gücü',user:i.hp?i.hp+' HP':'Girilmedi',tr:e.horsepower+' HP',ok:i.hp?Math.abs(i.hp-e.horsepower)/e.horsepower<=.08:null},
+      {k:'Yakıt',user:i.fuel,tr:e.fuel,ok:normFuel(i.fuel)===e.fuel},
+      {k:'Şanzıman',user:i.gear,tr:e.transmission.join(' / '),ok:e.transmission.indexOf(i.gear)>=0}
+    ];
+  }
+  var scored=pool.map(function(e){var c=chk(e);return {e:e,c:c,fail:c.filter(function(x){return x.ok===false}).length,unk:c.filter(function(x){return x.ok===null}).length}});
+  var pass=scored.filter(function(s){return s.fail===0});
+  if(pass.length===1){
+    res.entry=pass[0].e;res.checks=pass[0].c;res.status=pass[0].unk?'confirm':'ok';
+    if(pass[0].unk)res.msgs.push('Motor hacmi veya gücü girilmediği için bilgiler katalogdan tamamlandı. Lütfen doğrula.');
+    return res;
+  }
+  if(pass.length>1){
+    res.status='ambiguous';res.cands=pass.map(function(s){return s.e});
+    res.msgs.push('Türkiye\'de bu modelin farklı motor / versiyon seçenekleri bulunabiliyor. Doğru fiyat analizi için motor hacmini veya ilan linkini doğrulayın.');
+    return res;
+  }
+  scored.sort(function(a,b){return a.fail-b.fail});
+  var best=scored[0];
+  res.checks=best.c;res.near=best.e;
+  if(uv&&best.c[0].ok){
+    res.status='mismatch';res.entry=best.e;
+    res.msgs.push('Türkiye\'de '+uv+' bu teknik özelliklerle satılmıyor görünüyor. Çelişen alanlar: '+best.c.filter(function(x){return x.ok===false}).map(function(x){return x.k}).join(', ')+'.');
+  } else {
+    res.msgs.push('Girdiğin motor ve şanzıman kombinasyonu Türkiye kataloğunda yok. Türkiye\'de bulunuyor olabilir ama doğrulanamadı.');
+  }
+  return res;
+}
+
+/* ---------- Türkiye fiyat motoru ---------- */
+function r10(n){return Math.round(n/10000)*10000}
+function r50(n){return Math.round(n/50000)*50000}
+function quant(a,q){var p=(a.length-1)*q,b=Math.floor(p),r=p-b;return a[b+1]!==undefined?a[b]+r*(a[b+1]-a[b]):a[b]}
+function dmy(d){return d.toLocaleDateString('tr-TR',{month:'long',year:'numeric'})}
+function pv(x){return x!=null?TL(x):'Hesaplanamadı'}
+
+function parseComps(text){
+  var out={rows:[],invalid:0,foreign:0};
+  String(text||'').split(/\n+/).forEach(function(line){
+    line=line.trim();if(!line)return;
+    if(/[$€£]|\busd\b|\beur\b|dolar|euro|msrp/i.test(line)){out.foreign++;return}
+    var t=line.split(/[;|\t]/).map(function(x){return x.trim()});
+    if(t.length===1&&/,\s/.test(line))t=line.split(/,\s+/);
+    var price=digits(t[0]);
+    if(price<50000||price>100000000){out.invalid++;return}
+    var row={price:price,km:digits(t[1]),year:0,cc:parseCC(t[3]),trim:t[4]||''};
+    var y=digits(t[2]);if(y>=1990&&y<=YEAR+1)row.year=y;
+    out.rows.push(row);
+  });
+  return out;
+}
+function compsEstimate(i,c){
+  var kept=[],exEngine=0,exYear=0;
+  var eq=function(r){return r.cc&&i.cc&&Math.abs(r.cc-i.cc)<=60};
+  c.rows.forEach(function(r){
+    if(r.cc&&i.cc&&Math.abs(r.cc-i.cc)>60){exEngine++;return}
+    if(r.year&&Math.abs(r.year-i.year)>1){exYear++;return}
+    kept.push(r);
+  });
+  var t1=kept.filter(function(r){return r.year===i.year&&eq(r)});
+  var t2=kept.filter(function(r){return r.year&&Math.abs(r.year-i.year)<=1&&eq(r)});
+  var sel=kept,tier=3;
+  if(t1.length>=5){sel=t1;tier=1}else if(t2.length>=5){sel=t2;tier=2}
+  var tr=(i.trim||'').toLowerCase();
+  var counts={total:c.rows.length+c.foreign+c.invalid,parsed:c.rows.length,sameYear:kept.filter(function(r){return r.year===i.year}).length,sameEngine:kept.filter(eq).length,
+    sameTrim:tr?kept.filter(function(r){return r.trim&&r.trim.toLowerCase().indexOf(tr)>=0}).length:null,
+    similarKm:kept.filter(function(r){return r.km&&Math.abs(r.km-i.km)<=Math.max(15000,i.km*.25)}).length,
+    exEngine:exEngine,exYear:exYear,exForeign:c.foreign,invalid:c.invalid,used:sel.length};
+  if(sel.length<3)return {ok:false,counts:counts};
+  var adj=sel.map(function(r){var a=r.price;if(r.km)a*=1+clamp((r.km-i.km)/100000*.05,-.10,.10);return a}).sort(function(a,b){return a-b});
+  var mid=quant(adj,.5),lo=sel.length>=5?quant(adj,.25):adj[0],hi=sel.length>=5?quant(adj,.75):adj[adj.length-1];
+  var conf=t1.length>=8?'Yüksek':((tier<=2&&sel.length>=5)||sel.length>=8)?'Orta':'Düşük';
+  return {ok:true,counts:counts,mid:r10(mid),lo:r10(lo),hi:r10(hi),conf:conf,tier:tier};
+}
+function parametric(i){
+  var v=i.v;if(!v||!v.ref)return null;
+  var age=Math.max(1,YEAR-i.year),norm=(i.fuel==='Dizel'?20000:15000)*age;
+  var base=v.ref.price*Math.pow(1.08,i.year-v.ref.year);
+  base*=1+clamp((norm-i.km)/100000*.07,-.18,.12);
+  var adj=0;
+  adj-=Math.min(.18,(i.tramer/base)*.9);
+  adj-=Math.min(.08,splitList(i.changed).length*.012+splitList(i.painted).length*.005);
+  if(i.critAny)adj-=.12;
+  var mid=base*(1+adj);
+  return {mid:r50(mid),lo:r50(mid*.85),hi:r50(mid*1.15)};
+}
+function computePrice(i){
+  var p={listing:i.price,mode:'none',conf:'Düşük',diff:null,counts:null,dataDate:null,days:0,stale:false};
+  if(i.country!=='TR'){p.mode='foreign';return p}
+  var est=compsEstimate(i,parseComps(i.comps));
+  p.counts=est.counts;
+  var cd=i.compDate?new Date(i.compDate+'T00:00:00'):new Date();
+  if(isNaN(cd.getTime()))cd=new Date();
+  var days=Math.max(0,Math.round((Date.now()-cd.getTime())/86400000));
+  if(est.ok){
+    var conf=est.conf;
+    if(days>90)conf='Düşük';else if(days>45)conf=conf==='Yüksek'?'Orta':'Düşük';
+    if(!i.v&&conf==='Yüksek')conf='Orta';
+    p.mode='comps';p.conf=conf;p.mid=est.mid;p.lo=est.lo;p.hi=est.hi;p.tier=est.tier;p.dataDate=cd;p.days=days;p.stale=days>45;
+  } else {
+    var pe=parametric(i);
+    if(pe){p.mode='param';p.conf='Düşük';p.mid=pe.mid;p.lo=pe.lo;p.hi=pe.hi}
+  }
+  if(p.mid){p.diff=(i.price-p.mid)/p.mid;p.minOk=p.lo;p.maxOk=p.hi}
+  return p;
+}
+function finishNeg(p,overall){
+  if(!p.mid)return;
+  var step=p.conf==='Düşük'?50000:10000,rd=function(n){return Math.round(n/step)*step};
+  var rd2=overall<70?(70-overall)*.003*p.mid:0;
+  p.maxBuy=rd(p.mid*1.02-rd2);
+  p.target=Math.min(rd(p.mid*.985-rd2*.7),p.maxBuy-step);
+  p.first=Math.min(rd(p.mid*.955-rd2),p.target-step);
+}
+
+function engineLevels(i,p){
+  var d=i.fuel==='Dizel',t=d||(p&&p.eng.turbo)||/tsi|turbo|tce|puretech|ecoboost|tfsi|tdi|dci|cdti|hdi|jtd|multijet/i.test(i.engine);
+  var L={turbo:t?'m':'n',oil:'l',heat:'l',timing:'l',inj:d?'m':'l',cool:'l',leak:'l',egr:d?'m':'n',dpf:d?'m':'n',adblue:(d&&i.year>=2017)?'m':'n',ign:'l'};
+  if(i.km>150000){['oil','leak','cool','inj'].forEach(function(k){if(L[k]!=='n')L[k]=bump(L[k])})}
+  if(i.km>230000){['heat','timing'].forEach(function(k){L[k]=bump(L[k])})}
+  return L;
+}
+function buildEngine(i,p){
+  var L=engineLevels(i,p),T={},rows=[];
+  if(p&&p.eng.ov){Object.keys(p.eng.ov).forEach(function(k){L[k]=p.eng.ov[k][0];T[k]=p.eng.ov[k][1]})}
+  if(i.fuel==='Elektrik'){
+    rows=[['Batarya sağlığı (SoH)','m','Batarya kapasitesi yaşa ve şarj alışkanlığına göre azalır. Sağlık raporu istenmeli.'],['Şarj sistemi','l',DEF_TXT.l],['Batarya soğutması','m','Soğutma sıvısı ve pompa kontrol edilmeli.'],['Rejeneratif fren / fren diskleri','l','Disklerde paslanma görülebilir; fren yağı bakımına bak.'],['Yüksek voltaj kablolaması','l',DEF_TXT.l]].map(function(r){return {k:r[0],lv:r[1],txt:r[2]}});
+  } else {
+    rows=ENG_ROWS.map(function(r){var lv=L[r[0]];return {k:r[1],lv:lv,txt:T[r[0]]||DEF_TXT[lv]}});
+    if(i.fuel==='Hibrit')rows.push({k:'Hibrit batarya',lv:'m',txt:'Batarya sağlık raporu istenmeli; garanti kalan süresini sor.'});
+    if(i.fuel==='LPG\'li (Benzin)')rows.push({k:'LPG sistemi',lv:'m',txt:'Tüp muayenesi, enjektör ve filtre bakım kaydı sorulmalı.'});
+  }
+  var rel=p?p.eng.rel:(i.fuel==='Elektrik'?80:i.fuel==='Dizel'?74:(/tsi|turbo|tce|puretech|ecoboost|tfsi/i.test(i.engine)?72:78));
+  var pen=clamp((i.km-150000)/4000,0,16);
+  var vals={l:0,m:1,o:2,h:3,n:0};
+  var rsum=rows.reduce(function(a,r){return a+vals[r.lv]},0);
+  var score=clamp(Math.round(rel-pen-rsum*1.2),30,98);
+  var name=p?p.eng.name:(i.engine||'Belirtilmedi');
+  var life=p?p.eng.life:(i.fuel==='Elektrik'?'Batarya ömrüne bağlı (genelde 8–10 yıl)':'200.000 – 300.000 km (bakıma bağlı)');
+  return {name:name,rows:rows,score:score,life:life,rel:rel};
+}
+function buildGear(i,p){
+  var key=gearKeyFor(i,p),G=GEAR[key],tier=p?p.tier:tierOf(i.brand),mult=TIER[tier];
+  var ov=(p&&p.gearOv&&key===p.gear)?p.gearOv:{};
+  var rows=GEAR_ROWS.map(function(n,idx){
+    var lv=G.lv.charAt(idx);
+    return {k:n,lv:lv,txt:ov[idx]||DEF_TXT[lv]};
+  });
+  var pen=clamp((i.km-120000)/5000,0,14);
+  var score=clamp(Math.round(G.rel-pen),30,98);
+  return {key:key,name:G.n,score:score,rows:rows,note:G.note,cost:G.cost.map(function(c){return r1(c*mult)})};
+}
+function buildChronic(i,p,eng,gear){
+  var tier=p?p.tier:tierOf(i.brand),mult=TIER[tier],list=[];
+  if(p){list=p.chronic.map(function(c){return c})}
+  else {
+    var d=i.fuel==='Dizel';
+    if(i.fuel==='Elektrik'){
+      list=[{n:'Batarya kapasite kaybı',lv:'m',sym:'Menzilde belirgin düşüş, şarjın hızla bitmesi',when:'Yaşa ve kullanıma göre',fix:'Batarya testi; ileri aşamada modül veya paket değişimi',cost:[0,30000,150000,400000],stop:'Rapor yoksa şartlı'},{n:'Soğutma sıvısı ve pompa',lv:'l',sym:'Şarj sırasında aşırı ısınma uyarısı',when:'100.000 km sonrası',fix:'Sıvı yenileme veya pompa değişimi',cost:[3000,8000,20000,35000],stop:'Hayır'},{n:'Süspansiyon burçları (ağır kütle)',lv:'l',sym:'Tıkırtı, lastik aşınması',when:'80.000 km sonrası',fix:'Burç ve rotil değişimi',cost:[5000,9000,20000,32000],stop:'Hayır'}];
+    } else {
+      if(d)list.push({n:'DPF / EGR tıkanması',lv:'m',sym:'Güç kaybı, DPF uyarısı, sık rejenerasyon',when:'Kısa mesafe kullanımda 80.000 km sonrası',fix:'Temizleme veya parça değişimi',cost:[12000,22000,45000,85000],stop:'Kontrol şartıyla'});
+      if(d)list.push({n:'Enjektör ve yüksek basınç sistemi',lv:'m',sym:'Zor çalışma, sarsıntı, siyah duman',when:'130.000 km sonrası',fix:'Temizlik veya enjektör değişimi',cost:[10000,20000,40000,75000],stop:'Kontrol şartıyla'});
+      if(!d&&eng.rel<75)list.push({n:'Turbo ve yağ tüketimi takibi',lv:'m',sym:'Performans kaybı, yağ eksilmesi',when:'100.000 km sonrası',fix:'Turbo onarımı; yağ tüketimi takibi',cost:[8000,25000,50000,90000],stop:'Kontrol şartıyla'});
+      if(gear.key==='dsg'||gear.key==='edc'||gear.key==='semi')list.unshift({n:'Çift kavrama / robotik şanzıman sorunları',lv:'o',sym:'Kalkışta titreme, vites kaçırma',when:'80.000 – 140.000 km',fix:'Kavrama seti veya mekatronik onarımı',cost:gear.cost,stop:'Test sürüşünde titreme varsa evet'});
+      list.push({n:'Süspansiyon ve burçlar',lv:'l',sym:'Tıkırtı, direksiyonda boşluk',when:'90.000 km sonrası',fix:'Burç ve rotil değişimi',cost:[5000,9000,18000,30000],stop:'Hayır'});
+      list.push({n:'Klima ve elektrik aksamı',lv:'l',sym:'Klima soğutmuyor, küçük elektrik arızaları',when:'120.000 km sonrası',fix:'Gaz dolumu veya parça değişimi',cost:[3000,8000,20000,35000],stop:'Hayır'});
+    }
+  }
+  var order={h:0,o:1,m:2,l:3};
+  return list.map(function(c){
+    var cc=p?c.cost.map(function(x){return r1(x)}):c.cost.map(function(x){return r1(x*mult)});
+    return {n:c.n,lv:c.lv,sym:c.sym,when:c.when,fix:c.fix,cost:cc,stop:c.stop};
+  }).sort(function(a,b){return order[a.lv]-order[b.lv]});
+}
+function buildChecks(i,p,eng,gear,chronic){
+  var d=i.fuel==='Dizel',turbo=eng.rows.some(function(r){return /Turbo/.test(r.k)&&r.lv!=='n'});
+  var crit,imp=[],nor=['cons','tire','batt'];
+  if(p){crit=p.crit.slice()}
+  else {
+    var gk={manual:'man',cvt:'cvt',cvtT:'cvt',dsg:'dsg',dsgdry:'dsg',edc:'edc',semi:'dsg',auto:'at',zf8:'at',eat6:'at',ev:'hv'}[gear.key];
+    crit=i.fuel==='Elektrik'?['hv','cool','brake']:['cold','oil','cool',gk];
+    if(crit.indexOf('cold')<0&&i.fuel!=='Elektrik')crit.unshift('cold');
+  }
+  if(turbo&&crit.indexOf('turbo')<0)imp.push('turbo');
+  if(d&&crit.indexOf('egr')<0)imp.push('egr');
+  ['shock','brake','ac'].forEach(function(k){imp.push(k)});
+  if(i.fuel==='LPG\'li (Benzin)')imp.push('gas');
+  if(i.fuel==='Hibrit')imp.push('hv');
+  function mk(arr){return arr.filter(function(v,ix){return arr.indexOf(v)===ix&&LIB[v]}).map(function(k){return {name:LIB[k][0],how:LIB[k][1]}})}
+  return {crit:mk(crit),imp:mk(imp),nor:mk(nor)};
+}
+function analyzeKm(i){
+  var age=Math.max(1,YEAR-i.year),norm=i.fuel==='Dizel'?20000:15000,avg=i.km/age,ratio=avg/norm,v,sc,lv;
+  if(ratio<.5){v='Bu kilometre normalin çok altında.';sc=62;lv='o'}
+  else if(ratio<.8){v='Bu kilometre normalin altında.';sc=80;lv='l'}
+  else if(ratio<1.2){v='Bu kilometre yaşa göre normal aralıkta.';sc=90;lv='l'}
+  else if(ratio<1.6){v='Bu kilometre normalin üstünde.';sc=74;lv='m'}
+  else {v='Bu araç yaşına göre yoğun kullanılmış.';sc=56;lv='o'}
+  if(i.km>250000)sc=Math.min(sc,50);
+  else if(i.km>180000)sc=Math.min(sc,66);
+  return {age:age,avg:avg,norm:norm,ratio:ratio,verdict:v,score:sc,lv:lv,expected:norm*age,low:ratio<.5,veryHigh:ratio>=1.6};
+}
+function analyzeDamage(i,hints){
+  var ch=splitList(i.changed),pa=splitList(i.painted),crit=[];
+  if(i.crit.sasi)crit.push('Şasi');if(i.crit.podye)crit.push('Podye');if(i.crit.direk)crit.push('Direk');if(i.crit.airbag)crit.push('Airbag');
+  var all=(ch.concat(pa)).join(' ').toLowerCase();
+  [['şasi','Şasi'],['podye','Podye'],['direk','Direk'],['airbag','Airbag']].forEach(function(x){if(all.indexOf(x[0])>=0&&crit.indexOf(x[1])<0)crit.push(x[1])});
+  var textCrit=hints.filter(function(h){return h.critical&&!h.negated}).map(function(h){return h.label});
+  var base=i.damage==='yok'?92:i.damage==='var'?68:i.damage==='bilinmiyor'?66:72;
+  base-=Math.min(26,ch.length*5+pa.length*2);
+  var ratio=i.price?i.tramer/i.price:0;
+  if(ratio>.15)base-=22;else if(ratio>.05)base-=12;else if(ratio>.01)base-=5;
+  if(textCrit.length)base-=12;
+  var score=crit.length?Math.min(base,35):base;
+  var known=i.damage!==''||ch.length||pa.length||i.tramer>0;
+  return {ch:ch,pa:pa,crit:crit,textCrit:textCrit,score:clamp(Math.round(score),10,98),tramer:i.tramer,known:known,status:i.damage};
+}
+function analyzeMaint(i){
+  var base={yetkili:92,ozel:80,kismi:62,yok:40}[i.service];
+  var known=!!i.service;
+  if(base==null)base=60;
+  var months=null;
+  if(i.lastMaint){
+    var d=new Date(i.lastMaint+'T00:00:00');
+    if(!isNaN(d)){months=Math.round((Date.now()-d.getTime())/2629800000);
+      if(months>18)base-=12;else if(months>12)base-=6;}
+  }
+  return {score:clamp(base,20,98),known:known,months:months};
+}
+function priceScore(diff){
+  if(diff<-.15)return 55;
+  if(diff<=-.03)return 92;
+  if(diff<=.02)return 85;
+  if(diff<=.05)return 70;
+  if(diff<=.10)return 55;
+  return 38;
+}
+function completeness(i){
+  var items=[['Kasa tipi',!!i.body],['Çekiş',!!i.drive],['Motor gücü',!!i.power],['Hasar kaydı',!!i.damage],['Değişen / boyalı parça bilgisi',!!(i.changed||i.painted)],['Tramer tutarı',i.tramer>0||i.damage==='yok'],['Servis geçmişi',!!i.service],['Son bakım tarihi',!!i.lastMaint],['İlan açıklaması',i.desc.trim().length>20],['Fotoğraf',i.photos.length>0],['Türkiye benzer ilanları',(i.comps||'').trim().length>10]];
+  var done=items.filter(function(x){return x[1]}).length;
+  return {pct:Math.round(done/items.length*100),missing:items.filter(function(x){return !x[1]}).map(function(x){return x[0]})};
+}
+function analyzeLocal(i){
+  var p=matchProfile(i),hints=parseDesc(i.desc);
+  i.critAny=!!(i.crit.sasi||i.crit.podye||i.crit.direk||i.crit.airbag);
+  var eng=buildEngine(i,p),gear=buildGear(i,p),chronic=buildChronic(i,p,eng,gear),checks=buildChecks(i,p,eng,gear,chronic);
+  var km=analyzeKm(i),dmg=analyzeDamage(i,hints),maint=analyzeMaint(i),comp=completeness(i);
+  /* fiyat: yalnızca Türkiye piyasası */
+  var price=computePrice(i);
+  /* skor bileşenleri */
+  var cs=Math.round(clamp(100-chronic.reduce(function(a,c){return a+{l:5,m:12,o:20,h:30}[c.lv]},0)*.7,30,98));
+  var photoScore=(i.demo&&p&&p.demoPhotoScore)?p.demoPhotoScore:70;
+  var ps=price.diff==null?60:priceScore(price.diff);
+  if(price.diff!=null&&price.conf==='Düşük')ps=Math.round(65+(ps-65)*.5);
+  var scores={motor:eng.score,gear:gear.score,chronic:cs,km:km.score,damage:dmg.score,maint:maint.score,price:ps,photo:photoScore};
+  var overall=Math.round(WEIGHTS.reduce(function(a,w){return a+scores[w[0]]*w[2]/100},0));
+  if(dmg.crit.length)overall=Math.min(overall,59);
+  /* pazarlık ve maksimum fiyat */
+  finishNeg(price,overall);
+  /* karar */
+  var dec,decC;
+  if(dmg.crit.length){dec=overall<50?'UZAK DUR':'DİKKATLİ OL';decC=overall<50?'bad':'orange'}
+  else if(overall>=78&&price.diff!=null&&price.conf!=='Düşük'&&price.diff<=.03){dec='ALINABİLİR';decC='good'}
+  else if(overall>=62){dec='PAZARLIKLA DEĞERLENDİR';decC='warn'}
+  else if(overall>=50){dec='DİKKATLİ OL';decC='orange'}
+  else {dec='UZAK DUR';decC='bad'}
+  var pros=[],cons=[];
+  if(scores.motor>=75)pros.push('Motor genel olarak güvenilir bir yapıda');else if(scores.motor<65)cons.push('Motor ailesinde dikkat gerektiren başlıklar var');
+  if(scores.gear>=75)pros.push('Şanzıman tipi dayanıklı kabul edilir');else if(scores.gear<70)cons.push('Şanzıman tipi bilinen sorunlara açık: '+gear.name);
+  if(km.score>=80)pros.push('Kilometre yaşa göre makul');else if(km.score<70)cons.push(km.low?'Kilometre çok düşük, tutarlılık doğrulanmalı':'Kilometre yaşa göre yüksek');
+  if(dmg.score>=80)pros.push('Bildirilen hasar geçmişi düşük');else if(dmg.score<70)cons.push('Hasar / değişen / boya kayıtları fiyatı ve riski etkiliyor');
+  if(maint.score>=80)pros.push('Bakım geçmişi düzenli görünüyor');else if(maint.score<70)cons.push(maint.known?'Bakım geçmişi eksik veya eski':'Bakım geçmişi bilinmiyor');
+  if(price.diff==null)cons.push(price.mode==='foreign'?'Türkiye dışı araç: fiyat analizi yapılmadı':'Türkiye piyasa verisi yetersiz: fiyat doğrulanamadı');
+  else {
+    var qq=price.conf==='Düşük'?'yaklaşık ':'';
+    if(price.diff>.02)cons.push('İlan fiyatı '+qq+'tahmini Türkiye piyasasının %'+pct(price.diff)+' üzerinde');
+    else if(price.diff<-.03&&price.diff>=-.15)pros.push('İlan fiyatı '+qq+'tahmini Türkiye piyasasının %'+pct(price.diff)+' altında');
+    else if(price.diff<-.15)cons.push('Fiyat piyasanın çok altında; nedeni araştırılmalı');
+    if(price.conf==='Düşük')cons.push('Fiyat tahmininin güveni düşük');
+  }
+  if(!i.v&&i.country==='TR')cons.push('Türkiye varyantı katalogla doğrulanamadı');
+  if(dmg.crit.length)cons.unshift('Güvenlik açısından kritik bölgede işlem bilgisi var: '+dmg.crit.join(', '));
+  if(!pros.length)pros.push('Belirgin bir olumlu başlık öne çıkmıyor');
+  if(!cons.length)cons.push('Belirgin bir olumsuz başlık öne çıkmıyor');
+  var critCount=checks.crit.length;
+  var summary=overall>=78?'Bu araç genel olarak alınabilir görünüyor ancak satın almadan önce '+critCount+' kritik noktada ekspertiz yapılması önerilir.':overall>=62?'Bu araç pazarlıkla değerlendirilebilir; fiyat ve '+critCount+' kritik kontrol noktası netleşmeden karar verme.':'Bu araçta riskler öne çıkıyor. Devam edeceksen profesyonel ekspertiz olmadan teklif verme.';
+  return {input:i,profile:p,known:!!p,eng:eng,gear:gear,chronic:chronic,checks:checks,km:km,dmg:dmg,maint:maint,comp:comp,price:price,scores:scores,overall:overall,dec:dec,decC:decC,pros:pros,cons:cons,summary:summary,hints:hints,date:new Date()};
+}
+/* API'ye hazır sarmalayıcı: apiBaseUrl dolunca uzak servise gider */
+function analyze(i){
+  if(CFG.apiBaseUrl){
+    return fetch(CFG.apiBaseUrl+CFG.endpoints.analyze,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(i)}).then(function(r){return r.json()});
+  }
+  return Promise.resolve(analyzeLocal(i));
+}
+
+/* ---------- form ---------- */
+var state={photos:[]};
+(function initForm(){
+  var ys=$('#f-year');
+  for(var y=YEAR;y>=2000;y--){var o=document.createElement('option');o.value=y;o.textContent=y;ys.appendChild(o)}
+  ['f-km','f-price','f-tramer'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener('input',function(){var d=digits(el.value);el.value=d?d.toLocaleString('tr-TR'):''});
+  });
+  var chips=$('#demoChips');
+  DEMOS.forEach(function(it){
+    var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=it.label;b.addEventListener('click',function(){runDemo(it)});chips.appendChild(b);
+  });
+  var wl=$('#weightList');
+  wl.innerHTML=WEIGHTS.map(function(w){return '<div class="w-row"><span>'+w[1]+'</span><div class="track"><i style="width:'+(w[2]*4)+'%"></i></div><b class="mono">%'+w[2]+'</b></div>'}).join('');
+  $('#factorList').innerHTML=['Model yılı','Kilometre','Motor','Şanzıman','Donanım','Hasar geçmişi','Değişen / boya','Bölge','Piyasa talebi','Benzer araçlar'].map(function(x){return '<span>'+x+'</span>'}).join('');
+  /* fotoğraflar */
+  var fi=$('#f-photos'),drop=$('#drop');
+  fi.addEventListener('change',function(){addFiles(fi.files);fi.value=''});
+  ['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over')})});
+  ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('over')})});
+  drop.addEventListener('drop',function(e){addFiles(e.dataTransfer.files)});
+})();
+function addFiles(files){
+  Array.prototype.forEach.call(files,function(f){
+    if(!/^image\/(jpeg|png)$/.test(f.type))return;
+    if(state.photos.length>=12)return;
+    state.photos.push({name:f.name,url:URL.createObjectURL(f)});
+  });
+  renderThumbs();
+}
+function renderThumbs(){
+  $('#thumbs').innerHTML=state.photos.map(function(p,ix){return '<div class="thumb"><img src="'+p.url+'" alt="'+esc(p.name)+'"><button type="button" data-rm="'+ix+'" aria-label="Fotoğrafı kaldır">×</button></div>'}).join('');
+  $$('[data-rm]').forEach(function(b){b.addEventListener('click',function(){state.photos.splice(+b.dataset.rm,1);renderThumbs()})});
+}
+function readForm(){
+  var g=function(id){return document.getElementById(id)};
+  var eng=g('f-engine').value.trim();
+  return {brand:g('f-brand').value.trim(),model:g('f-model').value.trim(),year:+g('f-year').value||0,engine:eng,fuel:g('f-fuel').value,gear:g('f-gear').value,km:digits(g('f-km').value),price:digits(g('f-price').value),
+    country:g('f-country').value,cc:parseCC(g('f-cc').value)||parseCC(eng),hp:digits(g('f-power').value)||parseHP(eng),trim:g('f-trim').value.trim(),chassis:g('f-chassis').value.trim(),city:g('f-city').value.trim(),comps:g('f-comps').value,compDate:g('f-compdate').value,
+    body:g('f-body').value,drive:g('f-drive').value,power:g('f-power').value.trim(),damage:g('f-damage').value,changed:g('f-changed').value,painted:g('f-painted').value,tramer:digits(g('f-tramer').value),service:g('f-service').value,lastMaint:g('f-last').value,link:g('f-link').value.trim(),desc:g('f-desc').value,
+    crit:{sasi:g('c-sasi').checked,podye:g('c-podye').checked,direk:g('c-direk').checked,airbag:g('c-airbag').checked},photos:state.photos.slice(),demo:false,v:null};
+}
+function validate(i){
+  var req=[['f-brand',!!i.brand],['f-model',!!i.model],['f-year',!!i.year],['f-engine',!!i.engine],['f-fuel',!!i.fuel],['f-gear',!!i.gear],['f-km',i.km>0],['f-price',i.price>0]],first=null;
+  req.forEach(function(r){var f=document.getElementById(r[0]).closest('.field');f.classList.toggle('err',!r[1]);if(!r[1]&&!first)first=r[0]});
+  if(first){var el=document.getElementById(first);el.scrollIntoView({block:'center',behavior:'smooth'});el.focus({preventScroll:true});return false}
+  return true;
+}
+$('#form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var i=readForm();
+  if(!validate(i))return;
+  variantStep(i);
+});
+$$('#form .field input,#form .field select').forEach(function(el){el.addEventListener('input',function(){var f=el.closest('.field');if(f)f.classList.remove('err')})});
+function runDemo(item){
+  var d=item.demo,set=function(id,v){document.getElementById(id).value=v==null?'':v};
+  set('f-country','TR');set('f-brand',d.brand);set('f-model',d.model);set('f-year',d.year);set('f-engine',d.engine);set('f-cc',d.cc||'');set('f-trim',d.trim||'');set('f-fuel',d.fuel);set('f-gear',d.gear);
+  set('f-km',d.km.toLocaleString('tr-TR'));set('f-body',d.body);set('f-drive',d.drive);set('f-power',d.power);set('f-damage',d.damage);set('f-changed',d.changed);set('f-painted',d.painted);
+  set('f-tramer',d.tramer?d.tramer.toLocaleString('tr-TR'):'');set('f-service',d.service);set('f-desc',d.desc);set('f-comps','');set('f-chassis','');
+  var last='';if(d.lastMonthsAgo){var dt=new Date();dt.setMonth(dt.getMonth()-d.lastMonthsAgo);last=dt.toISOString().slice(0,10)}
+  set('f-last',last);
+  ['c-sasi','c-podye','c-direk','c-airbag'].forEach(function(id){document.getElementById(id).checked=false});
+  var i=readForm();i.demo=true;i.photos=[];
+  if(d.price){i.price=d.price}
+  else{
+    var vm=matchVariant(i),pe=parametric(Object.assign({},i,{v:vm.entry,critAny:false}));
+    i.price=pe?r5(pe.mid*d.factor):0;
+  }
+  set('f-price',i.price?i.price.toLocaleString('tr-TR'):'');
+  $$('.field.err').forEach(function(f){f.classList.remove('err')});
+  variantStep(i);
+}
+
+/* ---------- varyant doğrulama ekranı ---------- */
+function specCell(k,v){return '<div class="spec"><span>'+k+'</span><b>'+esc(v)+'</b></div>'}
+function chkBadge(ok){return ok===true?'<span class="badge good"><i></i>Uyuyor</span>':ok===false?'<span class="badge bad"><i></i>Uyuşmuyor</span>':'<span class="badge mute"><i></i>Doğrulanamadı</span>'}
+function variantStep(i){
+  var v=matchVariant(i);
+  i.vm=v;
+  renderVariant(i,v);
+  $('#home').hidden=true;$('#results').hidden=true;$('#variant').hidden=false;
+  window.scrollTo(0,0);
+}
+function applyEntry(i,e){
+  var set=function(id,x){document.getElementById(id).value=x};
+  i.engine=e.engine_label;i.cc=e.engine_displacement;i.hp=e.horsepower;i.fuel=e.fuel;
+  if(e.transmission.indexOf(i.gear)<0)i.gear=e.transmission[0];
+  set('f-engine',e.engine_label);set('f-cc',(e.engine_displacement/1000).toFixed(1));set('f-power',e.horsepower);set('f-fuel',e.fuel);set('f-gear',i.gear);
+}
+function renderVariant(i,v){
+  var e=(v.status==='ok'||v.status==='confirm')?v.entry:null,st=v.status,out='';
+  var box=function(cls,title,txt){return '<div class="warn-box '+cls+'">'+ICON_WARN+'<div><h4>'+title+'</h4><p>'+txt+'</p></div></div>'};
+  var cc=e?e.engine_displacement:i.cc,hp=e?e.horsepower:i.hp;
+  out+='<div class="wrap vwrap"><div class="res-top" style="padding:8px 0 0"><button class="btn" type="button" id="vChange0">Formu düzenle</button>'+(i.demo?'<span class="badge warn"><i></i>Demo araç</span>':'')+'</div>';
+  out+='<h1>'+(st==='mismatch'?'Varyant uyuşmazlığı bulundu':'Aracınızı böyle algıladık')+'</h1>';
+  if(st==='ok')out+=box('ok','Türkiye kataloğuyla eşleşti','Girdiğin bilgiler Türkiye kataloğundaki bu varyantla uyuşuyor. Onayladığında analiz başlar.');
+  else if(st==='confirm')out+=box('soft','Lütfen doğrula',esc(v.msgs[0]||''));
+  else if(st==='ambiguous')out+=box('soft','Varyant seçmen gerekiyor',esc(v.msgs[0]));
+  else if(st==='mismatch')out+=box('','VARİANT UYUŞMAZLIĞI','Analiz durduruldu. '+esc(v.msgs[0])+' Model adı aynı olsa da araç aynı değildir. Aşağıdaki Türkiye varyantını uygula veya bilgileri düzelt.');
+  else if(st==='foreign')out+=box('soft','Türkiye dışı araç','Fiyat analizi yalnızca Türkiye piyasası için yapılır. ABD veya Avrupa fiyatları Türkiye fiyatı olarak kullanılmaz. Teknik ve risk analizi çalışır.');
+  else out+=box('soft','Araç varyantı doğrulanamadı.',esc(v.msgs[0]||'')+' Doğru fiyat analizi için motor hacmini veya ilan linkini doğrulayın.');
+  out+='<div class="card"><div class="sec-h" style="margin-bottom:12px"><div><span class="eyebrow">Algılanan araç</span></div>'+conf(e?'Orta':'Düşük')+'</div><div class="spec-grid">'+
+    specCell('Marka',i.brand)+specCell('Model',i.model)+specCell('Versiyon / donanım',[e&&e.variant,i.trim].filter(Boolean).join(' · ')||'Belirtilmedi')+specCell('Model yılı',String(i.year))+
+    specCell('Kasa / jenerasyon',e?(e.generation+(e.facelift?' '+e.facelift:'')):(i.chassis||'Doğrulanamadı'))+specCell('Motor hacmi',cc?litre(cc):'Belirtilmedi')+specCell('Motor gücü',hp?hp+' HP':'Belirtilmedi')+specCell('Motor kodu',e?e.engine_code:'Doğrulanamadı')+
+    specCell('Yakıt',i.fuel)+specCell('Şanzıman',i.gear)+specCell('Çekiş',e?e.drivetrain:(i.drive||'Belirtilmedi'))+specCell('Ülke / pazar',i.country==='TR'?'Türkiye (TR)':'Türkiye dışı')+'</div>'+
+    '<p class="note">Donanım paketi (örn. M Sport) kullanıcı beyanıdır; Türkiye\'deki paket içeriği doğrulanmadı. Katalog yerel örnek veridir ve resmî kaynakla doğrulanmadı.</p></div>';
+  if(v.checks.length){
+    out+='<div class="card"><div class="sec-h" style="margin-bottom:10px"><div><span class="eyebrow">Doğrulama</span><h2 style="font-size:20px">Girdiğin bilgi ve Türkiye kataloğu</h2></div></div><div class="vtbl"><table class="mtable"><thead><tr><th>Alan</th><th>Girdiğin</th><th>Türkiye kataloğu</th><th>Durum</th></tr></thead><tbody>'+v.checks.map(function(c){return '<tr><td>'+c.k+'</td><td>'+esc(c.user)+'</td><td>'+esc(c.tr)+'</td><td>'+chkBadge(c.ok)+'</td></tr>'}).join('')+'</tbody></table></div></div>';
+  }
+  var ent=e||v.entry;
+  out+='<div class="card"><div class="mini-grid" style="margin-top:0"><div class="mini"><span>Tork</span><b>'+(ent&&ent.torque?esc(ent.torque):'Doğrulanmadı')+'</b></div><div class="mini"><span>Sıfır satış fiyatı</span><b>'+(ent&&ent.msrp?TL(ent.msrp):'Veri yok')+'</b></div><div class="mini"><span>ÖTV dilimi</span><b>Tanımlı değil</b></div><div class="mini"><span>Türkiye ikinci el piyasa değeri</span><b>'+(i.comps&&i.comps.trim()?'Girdiğin ilanlardan':'Veri yok')+'</b></div></div><p class="note">Bu alanlar resmî Türkiye veri kaynaklarına bağlanınca dolacak. Şu an fiyat yalnızca senin yapıştırdığın Türkiye ilanlarından hesaplanır.</p></div>';
+  if(st==='ambiguous'){
+    out+='<div class="card"><h3 style="font-size:17px;margin-bottom:12px">Türkiye\'deki seçenekler</h3><div style="display:grid;gap:10px">'+v.cands.map(function(c,ix){return '<div class="cand"><div><b>'+esc(c.model+(c.variant?' '+c.variant:''))+'</b><br><span class="hint">'+litre(c.engine_displacement)+' · '+c.horsepower+' HP · '+c.fuel+' · '+esc(c.transmission.join(' / '))+'</span></div><button class="btn primary" type="button" data-pick="'+ix+'">Bu varyantı seç</button></div>'}).join('')+'</div></div>';
+  }
+  out+='<div class="v-actions">';
+  if(st==='ok'||st==='confirm')out+='<button class="cta" type="button" id="vOk">DOĞRU</button>';
+  if(st==='mismatch'&&v.entry)out+='<button class="cta" type="button" data-pick-entry="1">Türkiye varyantını uygula: '+litre(v.entry.engine_displacement)+' · '+v.entry.horsepower+' HP</button>';
+  if(st==='unknown')out+='<button class="cta" type="button" id="vOk">Bilgilerim doğru, devam et</button>';
+  if(st==='foreign')out+='<button class="cta" type="button" id="vOk">Teknik analize devam et</button>';
+  out+='<button class="btn" type="button" id="vChange">DEĞİŞTİR</button>';
+  if(st==='mismatch')out+='<button class="btn" type="button" id="vForeign">Bu araç Türkiye dışından</button>';
+  out+='</div>';
+  if(st==='unknown')out+='<p class="hint">Devam edersen fiyat güveni en fazla Orta olur, katalogdan varyant bilgisi alınmaz ve kronik sorun analizi genel kurallara göre yapılır.</p>';
+  out+='</div>';
+  $('#variant').innerHTML=out;
+  var ok=$('#vOk');
+  if(ok)ok.addEventListener('click',function(){finalizeVariant(i,v);start(i)});
+  var back=function(){goHome('analiz')};
+  $('#vChange').addEventListener('click',back);$('#vChange0').addEventListener('click',back);
+  $$('[data-pick]').forEach(function(b){b.addEventListener('click',function(){applyEntry(i,v.cands[+b.dataset.pick]);variantStep(i)})});
+  var pe=$('[data-pick-entry]');
+  if(pe)pe.addEventListener('click',function(){applyEntry(i,v.entry);variantStep(i)});
+  var fb=$('#vForeign');
+  if(fb)fb.addEventListener('click',function(){document.getElementById('f-country').value='DIS';i.country='DIS';variantStep(i)});
+}
+function finalizeVariant(i,v){
+  i.v=(v.status==='ok'||v.status==='confirm')?v.entry:null;
+  if(i.v){i.cc=i.v.engine_displacement;if(!i.hp)i.hp=i.v.horsepower}
+  i.vstatus=v.status;i.confirmed=true;
+}
+
+/* ---------- yükleme akışı ---------- */
+var LSTEPS=['İlan bilgileri inceleniyor…','Motor ve şanzıman analiz ediliyor…','Modelin kronik problemleri taranıyor…','Piyasa değeri hesaplanıyor…','Risk skoru oluşturuluyor…'];
+function start(i){
+  var ld=$('#loader'),ul=$('#lSteps'),bar=$('#lBar'),title=$('#loadTitle');
+  ul.innerHTML=LSTEPS.map(function(s){return '<li><span class="dot"></span>'+s+'</li>'}).join('');
+  title.textContent='Analiz hazırlanıyor';bar.style.width='0';ld.hidden=false;
+  var lis=$$('li',ul),k=0,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,step=reduce?120:640;
+  var res=null;analyze(i).then(function(r){res=r});
+  function tick(){
+    if(k>0){lis[k-1].classList.remove('on');lis[k-1].classList.add('done')}
+    if(k<lis.length){lis[k].classList.add('on');bar.style.width=((k+1)/lis.length*92)+'%';k++;setTimeout(tick,step)}
+    else {
+      (function wait(){
+        if(!res){setTimeout(wait,100);return}
+        bar.style.width='100%';title.textContent='Analiz tamamlandı.';
+        setTimeout(function(){ld.hidden=true;show(res)},reduce?100:700);
+      })();
+    }
+  }
+  tick();
+}
+function show(r){
+  $('#home').hidden=true;$('#variant').hidden=true;$('#results').hidden=false;
+  render(r);
+  window.scrollTo(0,0);
+}
+function goHome(anchor){
+  $('#results').hidden=true;$('#variant').hidden=true;$('#home').hidden=false;
+  setTimeout(function(){var el=anchor?document.getElementById(anchor):document.getElementById('top');if(el)el.scrollIntoView({behavior:'auto',block:'start'})},20);
+}
+$('#backBtn').addEventListener('click',function(){goHome('analiz')});
+$$('[data-home]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();goHome('top');closeMenu()})});
+$$('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();closeMenu();if(!$('#results').hidden||!$('#variant').hidden)goHome(a.dataset.go);else{var el=document.getElementById(a.dataset.go);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}})});
+function closeMenu(){$('#nav').classList.remove('open');$('#menuBtn').setAttribute('aria-expanded','false')}
+$('#menuBtn').addEventListener('click',function(){var o=$('#nav').classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false')});
+$('#themeBtn').addEventListener('click',function(){
+  var cur=document.documentElement.dataset.theme||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  document.documentElement.dataset.theme=cur==='dark'?'light':'dark';
+});
+
+/* ---------- sonuç çizimi ---------- */
+function ringSvg(score,size,sw,track){
+  var r=(size-sw)/2,c=2*Math.PI*r,col='var(--'+bandColor(score)+')';
+  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'" aria-hidden="true"><circle cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="'+(track||'var(--line)')+'" stroke-width="'+sw+'"/><circle class="ring-v" data-c="'+c+'" data-s="'+score+'" cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="'+sw+'" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+c+'" style="transition:stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1)"/></svg>';
+}
+function secHead(id,eyebrow,title,confTxt){return '<header class="sec-h"><div><span class="eyebrow">'+eyebrow+'</span><h2>'+title+'</h2></div>'+(confTxt?confTxt:'')+'</header>'}
+function render(r){
+  var i=r.input;
+  $('#reportDate').textContent='Rapor tarihi: '+dateTR(r.date);
+  var html='';
+  html+=bannerHtml(r);
+  html+='<div class="car-head"><h1>'+esc(i.brand+' '+i.model)+'</h1><div class="car-meta"><span>'+i.year+'</span><span>'+esc(i.engine)+'</span><span>'+esc(i.fuel)+'</span><span>'+esc(r.gear.name)+'</span><span class="mono">'+nf(i.km)+' km</span></div></div>';
+  html+=variantBadges(r);
+  /* üst: skor + karar */
+  var s=r.overall,bc=bandColor(s);
+  html+='<div class="hero-res"><div class="card score-card"><div class="ring">'+ringSvg(s,176,14)+'<div class="c"><b>'+s+'</b><small>/ 100</small></div></div><div class="score-txt"><span class="lab">Genel araç skoru</span><h2>'+riskLabel(s)+'</h2><div class="badges"><span class="badge '+bc+'"><i></i>'+bandLabel(s)+'</span></div><p>'+esc(r.summary)+'</p></div></div>';
+  html+='<div class="card dark decision" id="s-karar"><span class="q">Bu aracı alır mıydık?</span><div class="d-title"><i style="background:var(--'+r.decC+')"></i>'+r.dec+'</div><div class="d-cols"><div class="pro"><h4>Olumlu</h4><ul>'+r.pros.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div><div class="con"><h4>Dikkat edilecek</h4><ul>'+r.cons.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div></div><div class="maxbuy"><span>Önerilen maksimum satın alma fiyatı</span><b>'+pv(r.price.maxBuy)+'</b></div></div></div>';
+  /* chip nav */
+  var nav=[['fiyat','Fiyat'],['skor','Skor kırılımı'],['motor','Motor'],['sanziman','Şanzıman'],['kronik','Kronik sorunlar'],['kontrol','Zayıf noktalar'],['foto','Fotoğraf'],['km','Kilometre'],['hasar','Hasar'],['bakim','Bakım maliyeti'],['ekspertiz','Ekspertiz'],['paylas','Paylaş']];
+  html+='<div class="chipnav"><div class="in" id="chipIn">'+nav.map(function(n){return '<a href="#s-'+n[0]+'" data-sec="s-'+n[0]+'">'+n[1]+'</a>'}).join('')+'</div></div>';
+  html+='<div class="dash"><div class="stack">'+[secPrice(r),secScore(r),secEngine(r),secGear(r),secChronic(r),secChecks(r),secPhoto(r),secKm(r),secDamage(r),secMaint(r),secExpert(r),secShare(r)].join('')+'<p class="disc">AutoCheck AI tarafından oluşturulan analiz bilgilendirme amaçlıdır. Fotoğraf ve ilan bilgileri profesyonel ekspertizin yerini tutmaz. Satın alma kararı öncesinde yetkili servis veya bağımsız ekspertiz kontrolü önerilir.</p></div>';
+  html+='<aside class="side"><div class="card"><h4>Özet</h4><div class="kv"><span>Genel skor</span><b>'+s+' / 100</b></div><div class="kv"><span>Karar</span><b>'+r.dec+'</b></div><div class="kv"><span>İlan fiyatı</span><b>'+TL(r.price.listing)+'</b></div><div class="kv"><span>'+(r.price.mode==='comps'?'Medyan':'Yaklaşık orta')+'</span><b>'+pv(r.price.mid)+'</b></div><div class="kv"><span>Maks. alım</span><b>'+pv(r.price.maxBuy)+'</b></div></div><div class="card"><h4>Veri doluluğu</h4><div class="prog"><b class="mono">%'+r.comp.pct+'</b><div class="tr"><i id="compBar" style="width:0"></i></div></div><p class="hint" style="margin-top:10px">'+(r.comp.missing.length?'Eksik: '+esc(r.comp.missing.slice(0,5).join(', '))+(r.comp.missing.length>5?'…':''):'Tüm alanlar dolu.')+'</p></div></aside></div>';
+  $('#resBody').innerHTML=html;
+  bindResults(r);
+}
+function bannerHtml(r){
+  var i=r.input,p=r.price,t;
+  if(i.demo)t='<b>Örnek analiz.</b> Bu bir demo araçtır; gerçek bir ilan değildir. Fiyat, yerel örnek referans parametreden üretilmiştir ve Türkiye ilan verisine dayanmaz.';
+  else if(p.mode==='comps')t='<b>Türkiye ilan verisi: kullanıcı girişi.</b> Fiyat, senin girdiğin Türkiye ilanlarına dayanır. Tahmin kesin değer değildir.';
+  else t='<b>Türkiye piyasa verisi bağlı değil.</b> Fiyat sonucu kesin değildir; arıza ve risk sonuçları genel kurallara dayanır.';
+  if(!r.known)t+=' Bu varyant için ayrıntılı bilgi tabanı yok; yakıt ve şanzıman tipine göre genel kurallar kullanıldı.';
+  return '<div class="banner">'+ICON_WARN+'<div>'+t+'</div></div>';
+}
+function variantBadges(r){
+  var i=r.input,b=[];
+  b.push(i.country==='TR'?'<span class="badge good"><i></i>Pazar: Türkiye</span>':'<span class="badge orange"><i></i>Türkiye dışı araç</span>');
+  if(i.v)b.push('<span class="badge good"><i></i>Varyant: Türkiye kataloğuyla eşleşti, onaylandı</span>');
+  else if(i.country==='TR')b.push('<span class="badge warn"><i></i>Varyant doğrulanamadı · kullanıcı beyanı</span>');
+  if(i.cc)b.push('<span class="badge mute"><i></i>'+litre(i.cc)+(i.hp?' · '+i.hp+' HP':'')+(i.trim?' · '+esc(i.trim):'')+'</span>');
+  if(i.city)b.push('<span class="badge mute"><i></i>'+esc(i.city)+'</span>');
+  return '<div class="badges" style="margin-top:10px">'+b.join('')+'</div>';
+}
+function howHtml(r){
+  var p=r.price,i=r.input,c=p.counts||{};
+  var cell=function(k,v,sub){return '<div class="mini"><span>'+k+'</span><b>'+v+'</b>'+(sub?'<small class="hint">'+sub+'</small>':'')+'</div>'};
+  var g='<div class="mini-grid">'+cell('Türkiye\'deki benzer ilan',c.total||0,'girilen toplam satır')+cell('Aynı model / yıl',c.sameYear||0)+cell('Aynı motor hacmi',c.sameEngine||0)+cell('Aynı donanım',c.sameTrim==null?'—':c.sameTrim,c.sameTrim==null?'Donanım girilmedi':'')+cell('Benzer KM aralığı',c.similarKm||0)+cell('Hesapta kullanılan',c.used||0)+cell('Hariç: farklı motor',c.exEngine||0)+cell('Hariç: TL dışı / yurt dışı',c.exForeign||0)+'</div>';
+  var m;
+  if(p.mode==='comps')m='Girdiğin Türkiye ilanları önce aynı yıl ve motor hacmine, sonra ±1 yıla göre seçildi. Farklı motor hacmi, 1 yıldan uzak model yılı ve TL dışı satırlar hariç tutuldu ('+(c.exYear||0)+' satır yıl farkıyla, '+(c.invalid||0)+' satır okunamadığı için elendi). Fiyatlar kilometre farkına göre düzeltildi; aralık, çeyrekler arası değerdir.';
+  else if(p.mode==='param')m='Yeterli Türkiye ilan verisi olmadığı için yerel örnek referans fiyat; model yılı, kilometre ve hasar kayıtlarına göre ölçeklendi. Bu kaba bir tahmindir ve gerçek piyasa fiyatı değildir.';
+  else m='Fiyat tahmini üretilmedi.';
+  var dt=p.mode==='comps'?'Veri tarihi: '+dmy(p.dataDate)+(p.stale?' · güncellik düşük ('+p.days+' gün önce)':''):p.mode==='param'?'Parametre tarihi bilinmiyor · güncel piyasa değeri olmayabilir':'Veri tarihi: yok';
+  return '<h3 style="font-size:16px;margin-top:22px">Bu fiyat tahmini nasıl hesaplandı?</h3>'+g+'<p class="note">'+m+'</p><p class="note"><b>'+dt+'</b></p>'+
+    '<div class="tint" style="margin-top:12px;font-size:13.5px"><b>Kaynaklar.</b> Kullanılan: '+(p.mode==='comps'?'Türkiye ilan verisi (kullanıcı girişi)':p.mode==='param'?'yerel örnek Türkiye referans parametresi':'yok')+'. Kullanılmayan: ABD ve Avrupa ikinci el fiyatları, ABD / Avrupa MSRP. Sıfır fiyat ve ÖTV dilimi verisi bağlı değil; ÖTV nedeniyle farklı motor hacimleri ayrı değerlendirilir.</div>';
+}
+function secPrice(r){
+  var p=r.price,i=r.input,low=p.conf==='Düşük';
+  var head=secHead('fiyat','1 · Türkiye fiyat analizi','Bu araç Türkiye\'de bu fiyata alınır mı?',p.mode==='foreign'?'':conf(p.conf));
+  var listing='<div class="pt big"><span>İlan fiyatı</span><strong>'+TL(p.listing)+'</strong></div>';
+  if(p.mode==='foreign')return '<section class="card sec" id="s-fiyat">'+head+'<div class="price-top">'+listing+'</div><div class="warn-box soft" style="margin-top:14px">'+ICON_WARN+'<div><h4>Türkiye dışı araç</h4><p>AutoCheck AI fiyat analizini yalnızca Türkiye ikinci el piyasası için yapar. ABD veya Avrupa fiyatları Türkiye fiyatı olarak kullanılmaz. Teknik, risk ve bakım bölümleri yine geçerlidir.</p></div></div></section>';
+  if(p.mode==='none')return '<section class="card sec" id="s-fiyat">'+head+'<div class="price-top">'+listing+'<div class="pt"><span>Türkiye tahmini piyasa</span><strong style="font-size:18px">Hesaplanamadı</strong></div></div><div class="warn-box soft" style="margin-top:14px">'+ICON_WARN+'<div><h4>Bu araç için yeterli Türkiye piyasa verisi bulunamadı.</h4><p>Bu yüzden fiyat tahmini üretilmedi. '+(i.v?'':'Varyant Türkiye kataloğunda doğrulanamadı. ')+'Formdaki "Türkiye\'deki benzer ilanlar" alanına en az 3, tercihen 8 veya daha fazla benzer Türkiye ilanı yapıştır.</p></div></div>'+howHtml(r)+'</section>';
+  var d=p.diff,cls,txt,pre=low?'YAKLAŞIK · ':'';
+  if(d>.02){cls=d>.08?'bad':d>.05?'orange':'warn';txt=pre+'PİYASANIN %'+pct(d)+' ÜSTÜNDE'}
+  else if(d<-.02){cls=d<-.15?'orange':'good';txt=pre+'PİYASANIN %'+pct(d)+' ALTINDA'}
+  else{cls='good';txt=pre+'PİYASAYA UYGUN'}
+  var midL=p.mode==='comps'?'Medyan':'Yaklaşık orta nokta';
+  var lo=Math.min(p.minOk*.92,p.listing*.95),hi=Math.max(p.maxOk*1.08,p.listing*1.05);
+  function pos(v){return clamp((v-lo)/(hi-lo)*100,0,100)}
+  function tx(po){return po<14?'transform:none;left:-4px':po>86?'transform:translateX(-100%);right:auto;left:4px':'transform:translateX(-50%)'}
+  var pf=pos(p.mid),pl=pos(p.listing);
+  var gauge='<div class="gauge" aria-label="Fiyat göstergesi"><div class="g-track"></div><div class="g-band" style="left:'+pos(p.minOk)+'%;width:'+(pos(p.maxOk)-pos(p.minOk))+'%"></div>'+
+   '<div class="g-mark up" style="left:'+pf+'%"><div class="t" style="'+tx(pf)+'"><b>'+TL(p.mid)+'</b>'+midL+'</div></div>'+
+   '<div class="g-mark dn listing" style="left:'+pl+'%"><div class="t" style="'+tx(pl)+'"><b>'+TL(p.listing)+'</b>İlan fiyatı</div></div>'+
+   '<div class="g-ends"><span>Düşük fiyat</span><span>Yüksek fiyat</span></div></div>';
+  var used=function(ok,name,why){return '<div class="fact '+(ok?'used':'no')+'">'+name+'<small>'+(ok?'Kullanıldı':why||'Veri yok')+'</small></div>'};
+  var comps=p.mode==='comps';
+  var facts=used(true,'Model yılı')+used(true,'Kilometre')+used(!!i.cc,'Motor hacmi','Girilmedi')+used(!!i.hp,'Motor gücü','Girilmedi')+used(true,'Şanzıman','')+used(!!i.trim,'Donanım paketi','Girilmedi')+used(i.damage!==''||i.tramer>0,'Hasar geçmişi','Girilmedi')+used(!!(i.changed||i.painted),'Değişen / boya','Girilmedi')+used(comps,'Benzer Türkiye ilanları','Girilmedi')+used(false,'ÖTV / sıfır fiyat','Veri kaynağı bağlı değil');
+  var q=low?'Yaklaşık ':'';
+  var diffTL=(d>=0?'+':'−')+TL(Math.abs(p.listing-p.mid));
+  return '<section class="card sec" id="s-fiyat">'+head+
+   (p.mode==='param'?'<div class="warn-box soft" style="margin-bottom:14px">'+ICON_WARN+'<div><h4>Yaklaşık tahmin</h4><p>Bu araç için yeterli Türkiye piyasa verisi bulunamadı. Aşağıdaki aralık yerel örnek parametrelerden hesaplanmış, düşük güvenli bir tahmindir. Kesin fiyat gibi okuma.</p></div></div>':'')+
+   (p.stale?'<div class="warn-box soft" style="margin-bottom:14px">'+ICON_WARN+'<div><h4>Veri güncel değil</h4><p>Girdiğin ilanlar '+p.days+' gün önce toplanmış. Fiyatlar değişmiş olabilir; güven seviyesi düşürüldü.</p></div></div>':'')+
+   '<div class="price-top">'+listing+'<div class="pt"><span>Türkiye tahmini piyasa</span><strong>'+TL(p.lo)+' - '+TL(p.hi)+'</strong></div><div class="pt"><span>'+midL+'</span><strong>'+TL(p.mid)+'</strong></div></div>'+
+   '<div class="verdict '+cls+'">'+txt+'</div>'+
+   (d<-.15?'<div class="warn-box soft" style="margin-top:14px">'+ICON_WARN+'<div><h4>Çok düşük fiyat</h4><p>İlan fiyatı tahmini piyasa değerinin çok altında. Gizli hasar, kilometre sorunu, eksik bilgi veya farklı bir varyant olabilir; nedenini mutlaka sor.</p></div></div>':'')+
+   gauge+
+   '<div class="mini-grid"><div class="mini"><span>Minimum makul fiyat</span><b>'+TL(p.minOk)+'</b></div><div class="mini"><span>'+midL+'</span><b>'+TL(p.mid)+'</b></div><div class="mini"><span>Maksimum makul fiyat</span><b>'+TL(p.maxOk)+'</b></div><div class="mini"><span>İlan farkı</span><b>'+diffTL+'<br>%'+pct(d)+(d>=0?' üzerinde':' altında')+'</b></div></div>'+
+   '<div class="neg"><h3>'+q+'Biz olsak bu araç için:</h3><div class="neg-row"><div><span>İlk teklif</span><b>'+pv(p.first)+'</b></div><div><span>Hedef fiyat</span><b>'+pv(p.target)+'</b></div><div><span>Maksimum</span><b>'+pv(p.maxBuy)+'</b></div></div></div>'+
+   howHtml(r)+
+   '<h3 style="font-size:16px;margin-top:22px">Fiyat hangi faktörlere göre hesaplandı?</h3><div class="fact-grid">'+facts+'</div></section>';
+}
+function secScore(r){
+  var rows=WEIGHTS.map(function(w){
+    var v=r.scores[w[0]],note='';
+    if(w[0]==='photo')note=(r.input.demo&&r.profile)?'Örnek değer':'Fotoğraf analizi yok, nötr puan';
+    if(w[0]==='maint'&&!r.maint.known)note='Servis bilgisi girilmedi';
+    if(w[0]==='damage'&&!r.dmg.known)note='Hasar bilgisi girilmedi';
+    if(w[0]==='price')note=r.price.diff==null?'Türkiye fiyat verisi yok, nötr puan':'Piyasa farkı: '+(r.price.diff>=0?'+':'−')+'%'+pct(r.price.diff)+(r.price.conf==='Düşük'?' · düşük güven':'');
+    return '<div class="fbar"><div class="nm">'+w[1]+'<small>Ağırlık %'+w[2]+(note?' · '+note:'')+'</small></div><div class="tr"><i class="c-'+bandColor(v)+'" data-w="'+v+'"></i></div><b>'+v+'</b></div>';
+  }).join('');
+  return '<section class="card sec" id="s-skor">'+secHead('skor','Skor kırılımı','Puanın arkasındaki faktörler',conf(r.known?'Orta':'Düşük'))+'<div class="fbars">'+rows+'</div>'+
+   (r.dmg.crit.length?'<p class="note">Kritik bölgede işlem bilgisi olduğu için genel skor en fazla 59 ile sınırlandı.</p>':'<p class="note">Genel skor, yukarıdaki puanların ağırlıklı ortalamasıdır. Skor ≥ 80 düşük, 60–79 orta, 60 altı yüksek risk anlamına gelir.</p>')+'</section>';
+}
+function riskRows(rows){
+  return '<div class="rows">'+rows.map(function(x){return '<div class="row'+(x.lv==='n'?' na':'')+'"><div class="rt"><b>'+esc(x.k)+'</b>'+badge(x.lv)+'</div><p>'+esc(x.txt)+'</p></div>'}).join('')+'</div>';
+}
+function secEngine(r){
+  var e=r.eng;
+  return '<section class="card sec" id="s-motor">'+secHead('motor','2 · Motor analizi','Motor ve Aktarma Organları',conf(r.known?'Orta':'Düşük'))+
+   '<div class="eng-head"><div class="mini"><span>Motor</span><b style="font-family:var(--f-display);font-size:17px">'+esc(r.input.engine)+(r.known?'<br><small style="font-weight:400;color:var(--muted);font-family:var(--f-body)">'+esc(e.name)+'</small>':'')+'</b></div><div class="mini"><span>Motor skoru (yüksek = daha güvenli)</span><b>'+e.score+' / 100</b></div><div class="mini"><span>Ortalama motor ömrü</span><b style="font-size:13px">'+esc(e.life)+'</b></div></div>'+riskRows(e.rows)+'</section>';
+}
+function secGear(r){
+  var g=r.gear;
+  return '<section class="card sec" id="s-sanziman">'+secHead('sanziman','3 · Şanzıman analizi','Şanzıman',conf(r.known?'Orta':'Düşük'))+
+   '<div class="eng-head"><div class="mini"><span>Algılanan şanzıman</span><b style="font-family:var(--f-display);font-size:17px">'+esc(g.name)+'</b></div><div class="mini"><span>Şanzıman skoru (yüksek = daha güvenli)</span><b>'+g.score+' / 100</b></div><div class="mini"><span>Tahmini onarım maliyeti</span><b style="font-size:13px">Düşük: '+TL(g.cost[0])+'<br>Ortalama: '+TL(g.cost[1])+' – '+TL(g.cost[2])+'<br>Yüksek: '+TL(g.cost[3])+'+</b></div></div>'+riskRows(g.rows)+'<p class="note">'+esc(g.note)+'</p></section>';
+}
+function secChronic(r){
+  var items=r.chronic.map(function(c,ix){
+    var col='var(--'+LV[c.lv].c+')';
+    return '<details class="prob"'+(ix===0?' open':'')+'><summary><span class="sev" style="background:'+col+'"></span><div><h3>'+esc(c.n)+'</h3><div class="cost-sm">'+TL(c.cost[1])+' – '+TL(c.cost[2])+' (ortalama)</div></div><div style="display:flex;align-items:center;gap:10px">'+badge(c.lv)+'<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div></summary><div class="prob-body"><div><span class="k">Belirti</span><p>'+esc(c.sym)+'</p></div><div><span class="k">Ne zaman ortaya çıkar?</span><p>'+esc(c.when)+'</p></div><div><span class="k">Çözüm</span><p>'+esc(c.fix)+'</p></div><div><span class="k">Aracı almaya engel mi?</span><p>'+esc(c.stop)+'</p></div><div class="range3"><div><span>Düşük</span><b>'+TL(c.cost[0])+'</b></div><div><span>Ortalama</span><b>'+TL(c.cost[1])+' – '+TL(c.cost[2])+'</b></div><div><span>Yüksek</span><b>'+TL(c.cost[3])+'+</b></div></div></div></details>';
+  }).join('');
+  return '<section class="card sec" id="s-kronik">'+secHead('kronik','4 · Kronik problemler','Bu modelin bilinen kronik sorunları',conf(r.known?'Orta':'Düşük'))+'<div class="chronic">'+items+'</div><p class="note">Maliyetler tek bir kesin rakam değil, aralıktır. İşçilik, parça kalitesi ve servis tercihine göre değişir.'+(r.known?' Bilgi tabanı örnek ve genel niteliktedir; sürüm ve üretim yılına göre doğrula.':' Bu model için ayrıntılı bilgi tabanı yok; maddeler yakıt ve şanzıman tipine göre genel olarak seçildi.')+'</p></section>';
+}
+function secChecks(r){
+  var c=r.checks,k=0;
+  function grp(name,color,arr){
+    if(!arr.length)return '';
+    return '<div class="grp"><h3><i style="background:var(--'+color+')"></i>'+name+'</h3><div class="wk">'+arr.map(function(x){k++;return '<div class="wk-item"><div class="t"><span>'+esc(x.name)+'</span><button type="button" class="how-btn" aria-expanded="false" data-how="how'+k+'">Nasıl kontrol edilir?</button></div><div class="how" id="how'+k+'" hidden>'+esc(x.how)+'</div></div>'}).join('')+'</div></div>';
+  }
+  return '<section class="card sec" id="s-kontrol">'+secHead('kontrol','5 · Zayıf noktalar','Satın almadan önce özellikle kontrol et',conf(r.known?'Orta':'Düşük'))+'<div class="groups">'+grp('Kritik','bad',c.crit)+grp('Önemli','orange',c.imp)+grp('Normal','good',c.nor)+'</div></section>';
+}
+function secPhoto(r){
+  var i=r.input,body='';
+  if(i.photos.length){
+    body+='<div class="photo-grid">'+i.photos.map(function(p){return '<div class="thumb"><img src="'+p.url+'" alt="'+esc(p.name)+'"></div>'}).join('')+'</div>';
+    body+='<div class="warn-box soft">'+ICON_WARN+'<div><h4>Otomatik görsel analiz bağlı değil</h4><p>'+i.photos.length+' fotoğraf yalnızca bu tarayıcıda önizleniyor. Aşağıdaki listeyi kullanarak fotoğraflara kendin bakabilirsin.</p></div></div>';
+  } else if(!i.demo){
+    body+='<div class="tint">Fotoğraf yüklenmedi. Fotoğraf yüklemek raporu zenginleştirir, ancak otomatik görsel analiz servisi şu an bağlı olmadığı için fotoğraflar yalnızca önizlenir.</div>';
+  }
+  if(i.demo&&r.profile){
+    body+='<div class="warn-box soft">'+ICON_WARN+'<div><h4>Örnek bulgular</h4><p>Aşağıdaki bulgular demo içindir. Gerçek bir fotoğraftan üretilmemiştir.</p></div></div><div class="dmg" style="grid-template-columns:1fr">'+r.profile.photo.map(function(f){return '<div class="finding"><div class="ft"><h4>'+esc(f[0])+'</h4><span style="display:flex;gap:8px;flex-wrap:wrap"><span class="example-tag">ÖRNEK</span>'+badge(f[3])+conf(f[2])+'</span></div><p>'+esc(f[1])+'</p></div>'}).join('')+'</div>';
+  }
+  body+='<h3 style="font-size:15px;margin:18px 0 6px">Fotoğraflarda bakılacak noktalar</h3><div class="look-list">'+['Panel aralıkları','Boya farkları','Renk tonu','Çizik ve göçükler','Far / tampon değişimi','Lastik durumu','Jant hasarı','Motor bölgesinde kaçak','Pas','İç mekân aşınması','Direksiyon ve koltuk aşınması','Kilometreyle uyumsuz kullanım izi'].map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>';
+  return '<section class="card sec" id="s-foto">'+secHead('foto','6 · Fotoğraf analizi','Fotoğraflar ne söylüyor?',conf('Düşük'))+body+'</section>';
+}
+function secKm(r){
+  var k=r.km,i=r.input,max=Math.max(k.expected,i.km)*1.25;
+  var pn=k.expected/max*100,py=i.km/max*100,col=k.lv==='l'?'good':k.lv==='m'?'warn':'orange';
+  var warns='';
+  if(k.low)warns+='<div class="warn-box soft">'+ICON_WARN+'<div><h4>Düşük kilometre her zaman avantaj değildir</h4><p>Çok az kullanılmış araçlarda yağ, lastik ve kauçuk parçalar zamanla yıpranır. Kilometre tutarlılığı ekspertiz ve servis kayıtlarıyla doğrulanmalıdır.</p></div></div>';
+  else if(k.ratio<.8)warns+='<div class="warn-box soft">'+ICON_WARN+'<div><h4>Düşük kilometre her zaman avantaj değildir</h4><p>Az kullanım, bakımın yapıldığı anlamına gelmez. Kilometre tutarlılığı ekspertiz ve servis kayıtlarıyla doğrulanmalıdır.</p></div></div>';
+  if(k.veryHigh)warns+='<div class="warn-box soft">'+ICON_WARN+'<div><h4>Yoğun kullanım</h4><p>Yıllık ortalama normalin çok üzerinde. Taksi, filo veya uzun yol kullanımı olup olmadığını sor; yıpranan parçaların bakım geçmişine bak.</p></div></div>';
+  return '<section class="card sec" id="s-km">'+secHead('km','7 · Kilometre ve kullanım','Kilometre araç yaşıyla uyumlu mu?',conf('Yüksek'))+
+   '<div class="mini-grid"><div class="mini"><span>Model yılı / yaş</span><b>'+i.year+' · '+k.age+' yıl</b></div><div class="mini"><span>Kilometre</span><b>'+nf(i.km)+' km</b></div><div class="mini"><span>Yıllık ortalama kullanım</span><b>'+nf(k.avg)+' km</b></div><div class="mini"><span>Beklenen yıllık (referans)</span><b>'+nf(k.norm)+' km</b></div></div>'+
+   '<div class="km-bar" aria-hidden="true"><div class="km-fill c-'+col+'" data-w="'+py+'"></div><div class="km-norm" style="left:'+pn+'%"><span>Beklenen: '+nf(k.expected)+' km</span></div><div class="km-you" style="left:'+py+'%"><span><b class="mono">'+nf(i.km)+' km</b></span></div></div>'+
+   '<p style="font-weight:600;margin-bottom:12px">'+k.verdict+'</p>'+warns+
+   '<p class="note">Beklenen kullanım, benzinli araçlarda yılda 15.000 km, dizellerde 20.000 km referans alınarak hesaplanır. Kilometre manipülasyonu ihtimali bu rakamdan tek başına anlaşılamaz; servis kayıtları ve ekspertiz gerekir.</p></section>';
+}
+function secDamage(r){
+  var d=r.dmg,i=r.input,out='';
+  if(d.crit.length)out+='<div class="warn-box">'+ICON_WARN+'<div><h4>Güvenlik uyarısı</h4><p>'+d.crit.join(', ')+' bölgesinde işlem bilgisi var. Şasi, podye, direk veya airbag işlemi varsa yalnızca fiyat avantajı nedeniyle satın alma önerilmez. Profesyonel ekspertiz gereklidir.</p></div></div>';
+  if(d.textCrit.length&&!d.crit.length)out+='<div class="warn-box soft">'+ICON_WARN+'<div><h4>İlan metninde kritik ifade geçiyor</h4><p>İlan açıklamasında şu ifadeler geçiyor: '+esc(d.textCrit.join(', '))+'. Bunun ne anlama geldiğini satıcıdan yazılı olarak iste ve ekspertizde doğrula.</p></div></div>';
+  var st={yok:'Yok',var:'Var',bilinmiyor:'Bilinmiyor','':'Belirtilmedi'}[d.status||''];
+  var cell=function(k,v){return '<div class="mini"><span>'+k+'</span><b style="font-family:var(--f-body);font-weight:600">'+v+'</b></div>'};
+  out+='<div class="dmg">'+cell('Hasar kaydı',st)+cell('Tramer tutarı',d.tramer?TL(d.tramer):'Belirtilmedi')+cell('Değişen parça ('+d.ch.length+')',d.ch.length?esc(d.ch.join(', ')):'Belirtilmedi')+cell('Boyalı parça ('+d.pa.length+')',d.pa.length?esc(d.pa.join(', ')):'Belirtilmedi')+cell('Şasi',i.crit.sasi?'İşlem var (işaretlendi)':'Bildirilmedi')+cell('Podye',i.crit.podye?'İşlem var (işaretlendi)':'Bildirilmedi')+cell('Direk',i.crit.direk?'İşlem var (işaretlendi)':'Bildirilmedi')+cell('Airbag',i.crit.airbag?'Açılmış / değişmiş (işaretlendi)':'Bildirilmedi')+'</div>';
+  if(r.hints.length)out+='<h3 style="font-size:15px;margin:18px 0 8px">İlan açıklamasında yakalanan ifadeler</h3><div class="look-list">'+r.hints.map(function(h){return '<span>'+esc(h.label)+(h.negated?' · olumsuzlama ile geçiyor':'')+'</span>'}).join('')+'</div><p class="note">Bu tarama yalnızca anahtar kelimelere bakar; ifadelerin doğruluğunu doğrulamaz.</p>';
+  out+='<div class="mini-grid" style="margin-top:16px"><div class="mini"><span>Hasar skoru</span><b>'+d.score+' / 100</b></div></div>';
+  return '<section class="card sec" id="s-hasar">'+secHead('hasar','8 · Hasar analizi','Hasar, değişen ve boya',conf(d.known?'Orta':'Düşük'))+out+'<p class="note">Beyan edilen bilgiler satıcıdan alınmıştır. Tramer ve hasar kaydını resmî kaynaktan (Sigorta Bilgi ve Gözetim Merkezi / yetkili sorgu) ayrıca doğrula.</p></section>';
+}
+function secMaint(r){
+  var p=r.profile,tier=p?p.tier:tierOf(r.input.brand),m=TIER[tier],i=r.input;
+  var a=function(lo,hi){return [r1(lo*m),r1(hi*m)]};
+  var svc=a(6000,13000),fren=a(5000,16000),lastik=a(14000,40000),aku=a(3500,8000),oil=a(2500,5500),filt=a(2000,5000);
+  var c0=r.chronic[0]?r.chronic[0].cost:[0,0,0,0],c1=r.chronic[1]?r.chronic[1].cost:[0,0,0,0];
+  var good=[svc[0],svc[1]+fren[0]];
+  var avg=[svc[0]+fren[0]+aku[0]+Math.round(c0[1]*.5),svc[1]+fren[1]+aku[1]+c0[2]];
+  var bad=[avg[0]+Math.round(c0[2]*.6),svc[1]+fren[1]+aku[1]+lastik[1]+c0[3]+Math.round(c1[3]*.5)+Math.round(r.gear.cost[3]*.4)];
+  avg[1]=Math.max(avg[1],good[1]+1000);avg[0]=Math.max(avg[0],good[0]+1000);bad[0]=Math.max(bad[0],avg[0]+1000);bad[1]=Math.max(bad[1],avg[1]+1000);
+  good=good.map(r1);avg=avg.map(r1);bad=bad.map(r1);
+  var hasTurbo=r.eng.rows.some(function(x){return /Turbo/.test(x.k)&&x.lv!=='n'});
+  var rows=[['Yıllık rutin bakım (yağ ve filtreler dahil)','Beklenen',svc],['Yağ','Rutin bakım içinde',oil],['Filtreler','Rutin bakım içinde',filt],['Fren (balata / disk)','Beklenen',fren],['Lastik (4 adet)','Yaklaşıyorsa',lastik],['Akü','Gerekirse',aku]];
+  if(hasTurbo)rows.push(['Turbo','Muhtemel arıza',[r1(20000*m/1.0),r1(80000*m/1.0)].map(function(x){return Math.min(x,120000)})]);
+  rows.push(['Şanzıman','Muhtemel arıza',[r.gear.cost[0],r.gear.cost[3]]]);
+  rows.push(['Motor','Muhtemel arıza',[r.chronic[0]?r.chronic[0].cost[0]:0,r.chronic[0]?r.chronic[0].cost[3]:0]]);
+  var tbl='<div class="tscroll"><table class="mtable"><thead><tr><th>Kalem</th><th>Tür</th><th>Düşük – Yüksek</th></tr></thead><tbody>'+rows.map(function(x){return '<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td class="n">'+TL(x[2][0])+' – '+TL(x[2][1])+'</td></tr>'}).join('')+'</tbody></table></div>';
+  var yr=Math.max(0,YEAR-i.year);
+  return '<section class="card sec" id="s-bakim">'+secHead('bakim','9 · Bakım maliyeti','Bu araç sana yılda ne kadara mal olabilir?',conf('Düşük'))+
+   '<div class="scen"><div class="sc"><h4><i style="background:var(--good)"></i>İyi senaryo</h4><b>'+TL(good[0])+' – '+TL(good[1])+'</b><p>Normal bakım dışında büyük masraf yok.</p></div><div class="sc"><h4><i style="background:var(--warn)"></i>Ortalama senaryo</h4><b>'+TL(avg[0])+' – '+TL(avg[1])+'</b><p>Rutin bakım artı birkaç parça.</p></div><div class="sc"><h4><i style="background:var(--bad)"></i>Kötü senaryo</h4><b>'+TL(bad[0])+' – '+TL(bad[1])+'</b><p>Büyük bir mekanik arıza.</p></div></div>'+
+   '<p style="margin-bottom:14px"><b>İlk 12 ay tahmini bakım / onarım bütçesi:</b> <span class="mono">'+TL(good[0])+' – '+TL(bad[1])+'</span></p>'+tbl+
+   '<p class="note">Tutarlar araç segmentine göre ölçeklenmiş örnek aralıklardır; güncel servis fiyat listesi değildir. '+(yr>8?'Araç yaşı '+yr+' yıl olduğu için kauçuk ve conta kalemlerini de bütçeye ekle.':'')+'</p></section>';
+}
+function secExpert(r){
+  return '<section class="card sec" id="s-ekspertiz">'+secHead('ekspertiz','11 · Ekspertiz kontrol listesi','Aracı görmeye giderken telefonundan işaretle',null)+
+   '<div class="exp-head"><div class="prog"><span class="mono" id="exCount">0 / '+EXPERT_ITEMS.length+' tamamlandı</span><div class="tr"><i id="exBar"></i></div></div><button class="btn primary" type="button" id="exDone">Kontrolü tamamla</button></div>'+
+   '<div class="ex-list">'+EXPERT_ITEMS.map(function(t,ix){return '<label class="ex"><input type="checkbox" data-ex="'+ix+'"><span>'+t+'</span></label>'}).join('')+'</div><div class="ex-result" id="exRes"></div></section>';
+}
+function secShare(r){
+  return '<section class="card sec" id="s-paylas">'+secHead('paylas','12 · Raporu paylaş','Raporu kaydet ve paylaş',null)+
+   '<div class="share"><button class="btn" type="button" id="shPdf">PDF Rapor Oluştur <span class="api-chip">SUNUCU GEREKİR</span></button><button class="btn primary" type="button" id="shCopy">Raporu Paylaş (özeti kopyala)</button><button class="btn" type="button" id="shLink">Link Oluştur <span class="api-chip">SUNUCU GEREKİR</span></button></div><p class="share-msg hint" id="shMsg">Rapor özeti panoya kopyalanır. PDF ve bağlantı oluşturma, sunucu servisi bağlandığında etkinleşir.</p></section>';
+}
+
+/* ---------- sonuç etkileşimleri ---------- */
+function bindResults(r){
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    $$('.ring-v').forEach(function(c){var t=+c.dataset.c,s=+c.dataset.s;c.style.strokeDashoffset=t*(1-s/100)});
+    $$('.fbar i,.km-fill').forEach(function(b){b.style.width=b.dataset.w+'%'});
+    var cb=$('#compBar');if(cb)cb.style.width=r.comp.pct+'%';
+  })});
+  $$('[data-how]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.how),o=t.hidden;t.hidden=!o;b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Gizle':'Nasıl kontrol edilir?'})});
+  /* ekspertiz */
+  var key='ac_expert_'+(r.input.brand+r.input.model+r.input.year).toLowerCase().replace(/\W/g,'');
+  var saved=[];try{saved=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){}
+  var boxes=$$('[data-ex]');
+  boxes.forEach(function(b){b.checked=saved.indexOf(+b.dataset.ex)>=0;b.addEventListener('change',upd)});
+  function upd(){
+    var n=boxes.filter(function(b){return b.checked}).length;
+    $('#exCount').textContent=n+' / '+boxes.length+' tamamlandı';$('#exBar').style.width=(n/boxes.length*100)+'%';
+    try{localStorage.setItem(key,JSON.stringify(boxes.filter(function(b){return b.checked}).map(function(b){return +b.dataset.ex})))}catch(e){}
+  }
+  upd();
+  $('#exDone').addEventListener('click',function(){
+    var left=boxes.filter(function(b){return !b.checked}).map(function(b){return EXPERT_ITEMS[+b.dataset.ex]});
+    var res=$('#exRes');
+    if(!left.length)res.innerHTML='<div class="warn-box" style="border-color:color-mix(in srgb,var(--good) 45%,var(--line));background:color-mix(in srgb,var(--good) 9%,var(--surface))"><div><h4 style="color:var(--good-t)">Kontrol tamamlandı</h4><p>Tüm maddeler işaretlendi ('+dateTR(new Date())+'). Bulduğun tüm sorunları fiyat pazarlığına yansıt.</p></div></div>';
+    else res.innerHTML='<div class="warn-box soft">'+ICON_WARN+'<div><h4>'+left.length+' madde eksik</h4><p>Karar vermeden önce şunları tamamla: '+esc(left.join(', '))+'.</p></div></div>';
+  });
+  /* paylaş */
+  var msg=$('#shMsg');
+  $('#shPdf').addEventListener('click',function(){msg.innerHTML='<b>PDF dışa aktarma bu prototipte kapalı.</b> Sunucu tarafı PDF servisi bağlandığında bu düğme raporu doğrudan indirecek.'});
+  $('#shLink').addEventListener('click',function(){msg.innerHTML='<b>Paylaşım bağlantısı oluşturulamadı.</b> Bağlantı için raporun bir sunucuda saklanması gerekir; bu servis henüz bağlı değil. Özeti kopyalayıp paylaşabilirsin.'});
+  $('#shCopy').addEventListener('click',function(){
+    var t=summaryText(r);
+    function ok(){msg.textContent='Rapor özeti panoya kopyalandı.';toast('Rapor özeti kopyalandı')}
+    function fail(){var ta=document.createElement('textarea');ta.value=t;ta.style.cssText='width:100%;height:160px;margin-top:10px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--surface2);color:var(--ink)';msg.textContent='Otomatik kopyalama kullanılamadı. Metni seçip kopyala:';msg.appendChild(ta);ta.select()}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fail);else fail();
+  });
+  /* chip nav takibi */
+  var links=$$('.chipnav a');
+  links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var el=document.getElementById(a.dataset.sec);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})})});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.dataset.sec===en.target.id)});var on=$('.chipnav a.on');if(on&&on.scrollIntoView)on.parentNode.scrollLeft=on.offsetLeft-16}})},{rootMargin:'-140px 0px -65% 0px'});
+    $$('.sec').forEach(function(s){io.observe(s)});
+  }
+}
+function summaryText(r){
+  var i=r.input,p=r.price;
+  return ['AutoCheck AI · Araç Risk ve Fiyat Analizi'+(i.demo?' (ÖRNEK)':''),dateTR(r.date),'',i.brand+' '+i.model+' · '+i.year+' · '+i.engine+' · '+r.gear.name+' · '+nf(i.km)+' km','Genel skor: '+r.overall+' / 100 ('+riskLabel(r.overall)+')','Karar: '+r.dec,'','İlan fiyatı: '+TL(p.listing),p.mid?('Türkiye tahmini piyasa: '+TL(p.lo)+' - '+TL(p.hi)+' (güven: '+p.conf+(p.mode==='param'?', yaklaşık tahmin':'')+')'):'Türkiye piyasa fiyatı: yeterli veri yok','İlk teklif: '+pv(p.first)+' · Hedef: '+pv(p.target)+' · Maksimum: '+pv(p.maxBuy),'','Kritik kontrol noktaları: '+r.checks.crit.map(function(x){return x.name}).join(', '),'','Bu analiz bilgilendirme amaçlıdır; profesyonel ekspertizin yerini tutmaz.'].join('\n');
+}
+})();
+</script>
+
+</body></html>
